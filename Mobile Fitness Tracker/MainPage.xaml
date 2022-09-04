@@ -73,12 +73,12 @@
 
 
         <Button x:Name="BtnClose"
-            Text="x Close"                
+            Text="x Seal the Deal"                
             Grid.Row="4"      
             Margin="50,20"
             FontSize="20"
-            TextColor="Black"
-            BackgroundColor="White"
+            TextColor="DarkOrange"
+            BackgroundColor="Black"
             BorderWidth="1"
             BorderColor="LightGray"
             Clicked="BtnClose_Clicked"/>
