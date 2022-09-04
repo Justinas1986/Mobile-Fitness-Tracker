@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage BackgroundColor="#FFF0F0F0"
+             
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_Fitness_Tracker.MainPage"
+             Title="Mobile Fitness Tracker" >
+    
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#FFF0F0F0"
+                              Offset="0.68"/>
+                <GradientStop Color="#A8C658"
+                              Offset="1.0"/>
+            </LinearGradientBrush>
+            </Grid.Background>
+
+            
+       
+        
+        <Grid.RowDefinitions >
+            <RowDefinition Height="100" />       
+            
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackLayout x:Name="BasicInfo" Margin="10,10,10,5" Grid.Row="0" Grid.Column="0">
+            <Label Text="Welcome to Mobile Fitness Tracker"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="20"
+               Margin="0,10"  />         
+            <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
+           
+        </StackLayout>
+
+      
+       
+
+
+        <Button x:Name="BtnMyProfile"
+            Text="¶ My Profile"                           
+            Grid.Row="1"      
+            Margin="50,20"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnMyProfile_Clicked"/>
+
+        <Button x:Name="BtnExercise"
+            Text="☼ Exercise"
+            Grid.Row="2"      
+            Margin="50,20"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnExercise_Clicked"/>
+        
+        <Image x:Name="ImgProfile"
+           Source="fit2.jpg"
+           Grid.Row="3"           
+           HorizontalOptions="Center"/>
+
+
+        <Button x:Name="BtnClose"
+            Text="x Close"                
+            Grid.Row="4"      
+            Margin="50,20"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnClose_Clicked"/>
+
+
+
+    </Grid>
+
+
+
+</ContentPage>
