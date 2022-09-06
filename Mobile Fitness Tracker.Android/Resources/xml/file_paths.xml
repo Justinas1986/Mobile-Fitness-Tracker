@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+	<external-files-path name="my_images" path="Pictures" />
+	<external-files-path name="my_movies" path="Movies" />
+</paths>
+<configuration>
+    <!-- https://go.microsoft.com/fwlink/?linkid=2124038
+    <issue id="HardcodedText" severity="error">
+        <ignore path="Resources\layout\content_main.xml" />
+    </issue>
+    -->
+</configuration>

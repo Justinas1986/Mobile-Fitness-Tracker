@@ -39,11 +39,8 @@
             <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
            
         </StackLayout>
-
       
        
-
-
         <Button x:Name="BtnMyProfile"
             Text="¶ My Profile"                           
             Grid.Row="1"      

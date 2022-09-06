@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Media;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,12 @@ namespace Mobile_Fitness_Tracker
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+           // MainPage = new MainPage();
+            //Allows to navigate from MainPage to MyProfilePage
+            MainPage = new NavigationPage(new MainPage());
+            //CrossMedia.Current.Initialize();
+
+
         }
 
         protected override void OnStart()

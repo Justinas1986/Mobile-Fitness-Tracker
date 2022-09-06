@@ -17,6 +17,9 @@ namespace Mobile_Fitness_Tracker
 
         private void BtnMyProfile_Clicked(object sender, EventArgs e)
         {
+            //Navigate to Profile page
+            Navigation.PushAsync(new MyProfilePage());
+
 
         }
 

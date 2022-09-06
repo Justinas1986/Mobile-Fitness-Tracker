@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_Fitness_Tracker.MyProfilePage"
+             Title="Fitness Profile Page">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#FFF0F0F0"
+                              Offset="0.68"/>
+                <GradientStop Color="#A8C658"
+                              Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+        <StackLayout x:Name="BasicInfo" Margin="10,10,10,5"  Grid.Row="0" Grid.ColumnSpan="3">
+            
+            <Label Text="My Profile"
+                  
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="20"
+               Margin="0,10"  />
+            <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
+
+        </StackLayout>
+        
+        
+        <Label x:Name="LblFirstName"
+               Text="First Name:"
+               Grid.Row="1"
+               Grid.Column="0"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+               FontSize="20"/>
+        <Entry x:Name="EntrFirstName"
+               Placeholder="First Name"
+               PlaceholderColor="Black"
+               Grid.Row="1"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               HorizontalOptions="Fill"
+               VerticalOptions="Center"/>
+
+        <Label x:Name="LblLastName"
+               Text="Last Name:"
+               Grid.Row="2"
+               Grid.Column="0"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+               FontSize="20"/>
+        <Entry x:Name="EntrLastName"
+               Placeholder="Last Name"
+               PlaceholderColor="Black"
+               Grid.Row="2"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               TextColor="Black"
+               HorizontalOptions="Fill"
+               VerticalOptions="Center"/>
+
+        <Label x:Name="LblPreferredName"
+               Text="First Name:"
+               Grid.Row="3"
+               Grid.Column="0"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+               FontSize="20"/>
+        <Entry x:Name="EntrPreferredName"
+               Placeholder="Preffered Name"
+               Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               PlaceholderColor="Black"
+               HorizontalOptions="Fill"
+               VerticalOptions="Center"/>
+
+        <Image x:Name="ImgProfile"
+           Source="fit2.jpg"
+           Grid.Row="4"
+           Grid.ColumnSpan="3"
+           HorizontalOptions="Center"/>
+        <Label x:Name="LblPathlabel"
+               Grid.Row="4"
+               Grid.Column="0"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+               FontSize="20"/>
+        
+        
+        <Button x:Name="BtnUploadPic"
+            Text="Upload Picture"                
+            Grid.Row="5"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Grid.ColumnSpan="3"
+            Clicked="BtnUploadPic_Clicked"/>
+
+        <Label x:Name="LblWeight"
+               Text="Weight:"
+               Grid.Row="6"
+               Grid.Column="0"
+               TextColor="Black"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"
+               FontSize="20"/>
+        <Entry x:Name="EntrWeight"
+               Placeholder="Weight"
+               Grid.Row="6"
+               Grid.Column="0"               
+               PlaceholderColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="End"/>
+
+        <Label x:Name="LblHeight"
+               Text="Height:"
+               Grid.Row="6"
+               Grid.Column="1"
+               TextColor="Black"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"
+               FontSize="20"/>
+        <Entry x:Name="EntrHeight"
+               Placeholder="Height"
+               Grid.Row="6"
+               Grid.Column="1"               
+               PlaceholderColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="End"/>
+        
+
+        <Label x:Name="LblAge"
+               Text="Age:"
+               Grid.Row="6"
+               Grid.Column="2"
+               TextColor="Black"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"
+               FontSize="20"/>
+        <Entry x:Name="EntrAge"
+               Placeholder="Age"
+               Grid.Row="6"
+               Grid.Column="2"               
+               PlaceholderColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="End"/>
+
+
+            <Label x:Name="LblBMI"
+               Text="BMI:"
+               Grid.Row="7"
+               Grid.Column="1"
+               TextColor="Black"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"
+               FontSize="20"/>
+        
+                <Label x:Name="LblYourBMI"
+               Text="Your BMI"
+               Grid.Row="7"
+               Grid.Column="1"
+               TextColor="Black"
+               VerticalOptions="End"
+               HorizontalOptions="Center"
+               FontSize="20"/>
+        
+
+
+        <Button x:Name="BtnClose"
+            Text="x Close"                
+            Grid.Row="8"      
+            Margin="50,20"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Grid.ColumnSpan="3"
+            Clicked="BtnClose_Clicked"/>
+
+
+
+    </Grid>
+</ContentPage>
