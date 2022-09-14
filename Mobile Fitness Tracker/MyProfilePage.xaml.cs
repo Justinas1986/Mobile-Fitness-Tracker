@@ -15,10 +15,20 @@ namespace Mobile_Fitness_Tracker
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyProfilePage : ContentPage
     {
+
+        
         public MyProfilePage()
         {
             InitializeComponent();
-            
+            OnAppearing();
+
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            collectionView1.ItemsSource = await App.Database.GetPeopleAsync();
+
         }
 
         private void BtnClose_Clicked(object sender, EventArgs e)
@@ -33,7 +43,7 @@ namespace Mobile_Fitness_Tracker
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void BtnUploadPic_Clicked(object sender, EventArgs e)
+        /*private async void BtnUploadPic_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -52,7 +62,13 @@ namespace Mobile_Fitness_Tracker
             {
                 DisplayAlert("Something went wrong", ex.Message, "Close");
             }
+        }*/
+
+        private void BtnCreateProfile_Clicked(object sender, EventArgs e)
+        {
+          
+            //Navigate to CreateUserPage
+            Navigation.PushAsync(new CreateUserPage());
         }
-       
     }
 }
