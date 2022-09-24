@@ -61,6 +61,7 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
+            IsEnabled="False"
             Clicked="BtnExercise_Clicked"/>
         
         <Image x:Name="ImgProfile"

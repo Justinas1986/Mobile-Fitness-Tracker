@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_Fitness_Tracker.ExerciseListPage"
+             Title="Exercise List">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#FFF0F0F0"
+                              Offset="0.68"/>
+                <GradientStop Color="#A8C658"
+                              Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Grid.RowDefinitions >
+            <RowDefinition Height="60" />
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackLayout x:Name="BasicInfo" Margin="10,10,10,5" Grid.Row="0" Grid.Column="0">
+            <Label Text="Exercise List"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="20"
+               Margin="0,10"  />
+            <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
+        </StackLayout>
+
+
+       
+
+                        <ListView x:Name="ListExercise"
+                SelectionMode="Single"
+                VerticalOptions="Start"
+                Grid.Row="1"                
+                >
+
+                            <ListView.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Orem</x:String>
+                                    <x:String>American Fork</x:String>
+                                    <x:String>Provo</x:String>
+                                    <x:String>Lehi</x:String>
+                                </x:Array>
+                            </ListView.ItemsSource>
+                        </ListView>
+
+
+
+
+
+        <Button x:Name="BtnExerciseEdit"
+            Text="Edit"                           
+            Grid.Row="3"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnExerciseEdit_Clicked"/>
+
+        <Button x:Name="BtnExerciseClose"
+            Text="Close"
+            Grid.Row="4"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnExerciseClose_Clicked"/>
+
+      
+
+
+       
+
+
+    </Grid>
+
+
+</ContentPage>

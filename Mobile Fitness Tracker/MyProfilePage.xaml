@@ -12,12 +12,7 @@
                 <GradientStop Color="#A8C658"
                               Offset="1.0"/>
             </LinearGradientBrush>
-        </Grid.Background>
-
-
-
-
-        
+        </Grid.Background>       
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
@@ -26,28 +21,20 @@
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="30"/>
-
-
-
-
-
         </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 
             </Grid.ColumnDefinitions>
 
-        <StackLayout x:Name="BasicInfo" Margin="10,10,10,5"  Grid.Row="0" Grid.ColumnSpan="3">
-            
-            <Label Text="My Profile"
-                  
+        <StackLayout x:Name="BasicInfo" Margin="10,10,10,5"  Grid.Row="0" Grid.ColumnSpan="3">            
+            <Label Text="My Profile"                  
                HorizontalOptions="Center"
                VerticalOptions="Start"
                TextColor="Black"
                FontSize="20"
                Margin="0,0"  />
             <BoxView Color="Black" WidthRequest ="1" HeightRequest="1"/>
-
         </StackLayout>
 
 
@@ -55,7 +42,6 @@
                                Grid.Row="1"
                                Grid.Column="0"
                                Grid.ColumnSpan="3"   >
-
             
                 <CollectionView.ItemTemplate>
                     
@@ -67,7 +53,8 @@
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
-                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="120"/>
 
 
@@ -181,14 +168,29 @@
                                HorizontalTextAlignment="Start"
                                VerticalTextAlignment="Start"/>
 
-                        
+                        <Label Text="BMI: "
+                               FontSize="Medium" 
+                               TextColor="Black"
+                               Grid.Row="5"
+                               Grid.Column="1"    
+                               Grid.ColumnSpan="2" 
+                               HorizontalTextAlignment="Start"
+                               VerticalTextAlignment="Start"/>
+                        <Label Text="{Binding BMI} "
+                               x:Name="LblBMI"
+                               FontSize="Medium" 
+                               TextColor="Black"
+                               Grid.Row="5"
+                               Grid.Column="1"  
+                               Grid.ColumnSpan="1" 
+                               HorizontalTextAlignment="End"
+                               VerticalTextAlignment="Start"/>
+
                         <Image x:Name="ImgProfile1"
                            Source="{Binding ProfilePic}"
-                           Grid.Row="5"
-                           Grid.ColumnSpan="3" />
-
-
-
+                           Grid.Row="6"
+                           Grid.ColumnSpan="2"
+                           HorizontalOptions="End"/>
                             
                     </Grid>
     
@@ -196,7 +198,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        
+                             
 
             <Button x:Name="BtnCreateProfile"
             Text="Create Profile"                

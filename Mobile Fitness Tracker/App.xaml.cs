@@ -20,6 +20,7 @@ namespace Mobile_Fitness_Tracker
                 }
 
                 return database;
+
             }
         }
 

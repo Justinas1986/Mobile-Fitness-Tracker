@@ -15,9 +15,6 @@
         </Grid.Background>
 
 
-
-
-
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="40"/>
@@ -34,15 +31,14 @@
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <StackLayout x:Name="BasicInfo" Margin="10,10,10,5"  Grid.Row="0" Grid.ColumnSpan="3">
 
-            <Label Text="My Profile"
-                  
+            <Label Text="My Profile"                  
                HorizontalOptions="Center"
                VerticalOptions="Start"
                TextColor="Black"
@@ -62,13 +58,16 @@
                HorizontalOptions="End"
                FontSize="20"/>
         <Entry x:Name="EntrFirstName"
-               Placeholder="First Name"
-               PlaceholderColor="Black"
+              Placeholder="First Name"
+               PlaceholderColor="Silver"
                Grid.Row="1"
                Grid.Column="1"
                Grid.ColumnSpan="2"
+               TextColor="Black"
                HorizontalOptions="Fill"
                VerticalOptions="Center"/>
+               
+            
 
         <Label x:Name="LblLastName"
                Text="Last Name:"
@@ -80,7 +79,7 @@
                FontSize="20"/>
         <Entry x:Name="EntrLastName"
                Placeholder="Last Name"
-               PlaceholderColor="Black"
+               PlaceholderColor="Silver"
                Grid.Row="2"
                Grid.Column="1"
                Grid.ColumnSpan="2"
@@ -89,7 +88,7 @@
                VerticalOptions="Center"/>
 
         <Label x:Name="LblPreferredName"
-               Text="First Name:"
+               Text="Preffered Name:"
                Grid.Row="3"
                Grid.Column="0"
                TextColor="Black"
@@ -101,7 +100,8 @@
                Grid.Row="3"
                Grid.Column="1"
                Grid.ColumnSpan="2"
-               PlaceholderColor="Black"
+               PlaceholderColor="Silver"
+               TextColor="Black"
                HorizontalOptions="Fill"
                VerticalOptions="Center"/>
 
@@ -114,11 +114,13 @@
                HorizontalOptions="End"
                FontSize="20"/>
         <Entry x:Name="EntrWeight"
+               Keyboard="Numeric"
                Placeholder="Weight"
                Grid.Row="4"
                Grid.Column="1"
                Grid.ColumnSpan="2"
-               PlaceholderColor="Black"
+               PlaceholderColor="Silver"
+               TextColor="Black"
                HorizontalOptions="Fill"
                VerticalOptions="Center"/>
 
@@ -131,11 +133,13 @@
                HorizontalOptions="End"
                FontSize="20"/>
         <Entry x:Name="EntrHeight"
+               Keyboard="Numeric"
                Placeholder="Height"
                Grid.Row="5"
                Grid.Column="1"
                Grid.ColumnSpan="2"
-               PlaceholderColor="Black"
+               PlaceholderColor="Silver"
+               TextColor="Black"
                HorizontalOptions="Fill"
                VerticalOptions="Center"/>
 
@@ -148,11 +152,13 @@
                HorizontalOptions="End"
                FontSize="20"/>
         <Entry x:Name="EntrAge"
+               Keyboard="Numeric"
                Placeholder="Age"
                Grid.Row="6"
                Grid.Column="1"
                Grid.ColumnSpan="2"
-               PlaceholderColor="Black"
+               PlaceholderColor="Silver"
+               TextColor="Black"
                HorizontalOptions="Fill"
                VerticalOptions="Center"/>
         
@@ -163,8 +169,6 @@
                            HorizontalOptions="Center"/>
         
            
-
-
 
 
         <Button x:Name="BtnImageUpload"

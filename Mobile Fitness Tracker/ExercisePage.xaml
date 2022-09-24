@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_Fitness_Tracker.ExercisePage"
+             Title="Exercise Page" >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#FFF0F0F0"
+                              Offset="0.68"/>
+                <GradientStop Color="#A8C658"
+                              Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+
+        <Grid.RowDefinitions >
+            <RowDefinition Height="80" />
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout x:Name="BasicInfo" Margin="10,10,10,5" Grid.Row="0" Grid.Column="0">
+            <Label Text="Exercise"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="20"
+               Margin="0,10"  />
+            <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
+
+        </StackLayout>
+
+        <Image x:Name="ImgExercise"
+           Source="fit2.jpg"
+           Grid.Row="1"           
+           HorizontalOptions="Center"
+           VerticalOptions="Start"/>
+        <Label x:Name="LblNickName"                       
+           Grid.Row="2" 
+           TextColor="Black"
+           FontAttributes="Italic"
+           HorizontalOptions="Center"
+           FontSize="20"
+           VerticalOptions="Start"/>
+
+
+
+        <Button x:Name="BtnExerciseList"
+            Text="Exercise List"                           
+            Grid.Row="3"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnExerciseList_Clicked"/>
+
+        <Button x:Name="BtnWorkoutList"
+            Text="Workou List"
+            Grid.Row="4"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnWorkoutList_Clicked"/>
+        
+        <Button x:Name="BtnWorkoutSchedule"
+            Text="Workout Schedule"
+            Grid.Row="5"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnWorkoutSchedule_Clicked"/>
+
+      
+        <Button x:Name="BtnClose"
+            Text="x Close"                
+            Grid.Row="6"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnClose_Clicked"/>
+
+
+    </Grid>
+
+
+</ContentPage>
