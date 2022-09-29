@@ -6,7 +6,7 @@ using System.Text;
 namespace Mobile_Fitness_Tracker
 {
     //create DB table UserDBClass
-    
+   
     public class UserDBClass
     {       
             [PrimaryKey]
@@ -19,6 +19,25 @@ namespace Mobile_Fitness_Tracker
             public int Age { get; set; }
             public double BMI { get; set; }
             public string ProfilePic { get; set; }
+    }
+
+    
+    public class ExerciseDBClass
+    {
+
+        // [PrimaryKey, AutoIncrement]
+
+        //Primary key Product_Number
+        [PrimaryKey]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string Index { get; set; }
+        public string Exercise { get; set; }
+        public string Description { get; set; }
+        
+        
+
+
     }
 
 

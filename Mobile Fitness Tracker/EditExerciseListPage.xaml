@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_Fitness_Tracker.EditExerciseListPage"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid" 
+             xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             Title="Edit Exercise List">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#FFF0F0F0"
+                              Offset="0.68"/>
+                <GradientStop Color="#A8C658"
+                              Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>           
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+      
+
+
+        <StackLayout x:Name="BasicInfo" Margin="5,5"  Grid.Row="0" >
+
+            <Label Text="Exercise List Edit"                  
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="20"
+               Margin="0,0"  />
+            <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
+
+        </StackLayout>
+
+
+        <ContentView Grid.Row="1" >
+            <!-- Place new controls here -->
+            <Syncfusion:SfDataGrid x:Name="datagrid"                                    
+                                   AutoGenerateColumns="True" 
+                                   
+                                   AllowSorting="True"
+                                   ColumnSizer="Star"
+                                   SelectionMode="Single"
+                                   RowHeight="40"     
+                                   SelectedItem="" 
+                                   Margin="5,0">
+                <Syncfusion:SfDataGrid.Columns>
+                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="No." HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
+                    <Syncfusion:GridTextColumn MappingName="Exercise" HeaderText="My Exercise" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
+                    <Syncfusion:GridTextColumn MappingName="Description" HeaderText="Description" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
+
+
+                </Syncfusion:SfDataGrid.Columns>
+            </Syncfusion:SfDataGrid>
+        </ContentView>
+
+        <Grid Grid.Row="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>                
+                <RowDefinition Height="40"/>             
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Text="Exercise:"
+               Grid.Row="0" 
+               Grid.Column="0"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+               FontSize="20"/>
+        
+            <Entry x:Name="EntrExercise"
+               Placeholder="Enter Your Exercise"
+               PlaceholderColor="Silver"
+               Grid.Row="0"   
+               Grid.Column="1"
+               TextColor="Black"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Start"/>
+
+            <Label Text="Description:"
+               Grid.Row="1" 
+               Grid.Column="0"
+               TextColor="Black"
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+               FontSize="20"/>
+
+            <Entry x:Name="EntrDescription"
+               Placeholder="Description"
+               PlaceholderColor="Silver"
+               Grid.Row="1"   
+               Grid.Column="1"
+               TextColor="Black"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Start"/>
+
+        </Grid>
+        
+    <Label x:Name="Lblgrid" 
+            Text="Exercise"
+               Grid.Row="2"              
+                
+               TextColor="Black"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               FontSize="10"/>
+
+        
+        <Picker x:Name="PckID"
+                Title="Select ID"
+                FontSize="20"
+                Grid.Row="3"
+                TextColor="Black"
+                TitleColor="Black"
+                VerticalOptions="Center"
+                ItemsSource="{Binding Id}"
+                      SelectedItem="{Binding Exercise}">
+        </Picker>
+
+        <Button x:Name="BtnAddExercise"
+            Text="Add Exercise"                
+            Grid.Row="4"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"  
+           
+            Clicked="BtnAddExercise_Clicked"/>
+
+        <Button x:Name="BtnExerciseDelete"
+            Text="Delete All"
+            Grid.Row="5"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+           
+            BorderColor="LightGray"
+            Clicked="BtnExerciseDelete_Clicked"/>
+
+        <Button x:Name="BtnClose"
+            Text="Delete row"                
+            Grid.Row="6"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"          
+            Clicked="BtnClose_Clicked_1"/>
+
+
+
+    </Grid>
+</ContentPage>

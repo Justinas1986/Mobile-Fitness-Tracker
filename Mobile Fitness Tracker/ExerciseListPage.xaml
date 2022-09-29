@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid" 
              x:Class="Mobile_Fitness_Tracker.ExerciseListPage"
              Title="Exercise List">
     <Grid>
@@ -16,7 +17,7 @@
 
         <Grid.RowDefinitions >
             <RowDefinition Height="60" />
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="300"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
@@ -36,25 +37,41 @@
         </StackLayout>
 
 
-       
 
-                        <ListView x:Name="ListExercise"
-                SelectionMode="Single"
-                VerticalOptions="Start"
-                Grid.Row="1"                
-                >
+        <ContentView Grid.Row="1" >
+            <!-- Place new controls here -->
+            <dg:DataGrid x:Name="datagrid"   RowHeight="40" HeaderHeight="40"  
+                    BorderColor="#CCCCCC" HeaderBackground="#E0E6F8"  ActiveRowColor="#8899AA">
+                <x:Arguments>
+                    <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+                </x:Arguments>
+                <dg:DataGrid.HeaderFontSize>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                        <OnIdiom.Phone>12</OnIdiom.Phone>
+                    </OnIdiom>
+                </dg:DataGrid.HeaderFontSize>
+                <dg:DataGrid.Columns>
+                    <dg:DataGridColumn Title="No." PropertyName="Id" Width="40"></dg:DataGridColumn>
+                    <dg:DataGridColumn PropertyName="Exercise" Width="*">
+                        <dg:DataGridColumn.FormattedTitle>
+                            <FormattedString>
+                                <Span Text="Exercise List" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                            </FormattedString>
+                        </dg:DataGridColumn.FormattedTitle>
+                    </dg:DataGridColumn>
 
-                            <ListView.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Orem</x:String>
-                                    <x:String>American Fork</x:String>
-                                    <x:String>Provo</x:String>
-                                    <x:String>Lehi</x:String>
-                                </x:Array>
-                            </ListView.ItemsSource>
-                        </ListView>
-
-
+                    
+                  
+                </dg:DataGrid.Columns>
+                <dg:DataGrid.RowsBackgroundColorPalette>
+                    <dg:PaletteCollection>
+                        <Color>#F2F2F2</Color>
+                        <Color>#FFFFFF</Color>
+                    </dg:PaletteCollection>
+                </dg:DataGrid.RowsBackgroundColorPalette>
+            </dg:DataGrid>
+        </ContentView>
 
 
 
@@ -68,6 +85,8 @@
             BorderWidth="1"
             BorderColor="LightGray"
             Clicked="BtnExerciseEdit_Clicked"/>
+
+       
 
         <Button x:Name="BtnExerciseClose"
             Text="Close"

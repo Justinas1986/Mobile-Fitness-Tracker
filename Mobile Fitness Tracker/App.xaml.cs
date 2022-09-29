@@ -16,31 +16,30 @@ namespace Mobile_Fitness_Tracker
             {
                 if (database == null)
                 {
-                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
+                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));                 
                 }
 
                 return database;
 
             }
+                       
         }
 
-
-
+       
         public App()
             {
                 InitializeComponent();
-
-                // MainPage = new MainPage();
-                //Allows to navigate from MainPage to MyProfilePage
-                MainPage = new NavigationPage(new MainPage());
-                
-
-            //CrossMedia.Current.Initialize();
-
+            //initialize DataComponent in App Startup of App.xaml.cs 
+            Xamarin.Forms.DataGrid.DataGridComponent.Init();
+            // MainPage = new MainPage();
+            //Allows to navigate from MainPage to MyProfilePage
+            MainPage = new NavigationPage(new MainPage());
+            //Synfussion datagrid licese
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NzI2MTYzQDMyMzAyZTMyMmUzMGtOaVhudW9uZi9Gc3J6Z1Fwcm0zeG5Ea1VyRUtjdHZYamp4aG5xVzZQS1k9");
 
         }
 
-            protected override void OnStart()
+        protected override void OnStart()
             {
             }
 

@@ -11,7 +11,9 @@ namespace Mobile_Fitness_Tracker
         //Public variable for Foto
         public static string ProfilePic { get; set; }
 
-        
+        public static int selection { get; set; }
+
+
 
     }
 }

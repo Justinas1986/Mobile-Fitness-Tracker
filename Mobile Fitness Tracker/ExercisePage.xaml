@@ -64,7 +64,7 @@
             Clicked="BtnExerciseList_Clicked"/>
 
         <Button x:Name="BtnWorkoutList"
-            Text="Workou List"
+            Text="Workout List"
             Grid.Row="4"      
             Margin="50,5"
             FontSize="20"
