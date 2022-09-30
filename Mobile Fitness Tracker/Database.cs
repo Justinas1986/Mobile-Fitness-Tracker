@@ -68,11 +68,11 @@ namespace Mobile_Fitness_Tracker
         }
 
         internal async Task DeleteRow()
-        {
+        { 
             //delete table content
             // await _database.DeleteAllAsync<ExerciseDBClass>();
             //delete increment ID
-            int digit = UserGlobalVaraibles.selection;
+            int digit = UserGlobalVaraibles.cellValue;
              await _database.ExecuteAsync($"delete from ExerciseDBClass where Id = {digit} ;");
 
            // return  _database.QueryAsync<int>("SELECT * FROM ExerciseDBClass").ToListAsync();

@@ -30,8 +30,7 @@ namespace Mobile_Fitness_Tracker
         //Primary key Product_Number
         [PrimaryKey]
         [AutoIncrement]
-        public int Id { get; set; }
-        public string Index { get; set; }
+        public int Id { get; set; }       
         public string Exercise { get; set; }
         public string Description { get; set; }
         
