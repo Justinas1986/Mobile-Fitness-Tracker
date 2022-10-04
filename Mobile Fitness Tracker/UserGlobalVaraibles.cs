@@ -10,8 +10,17 @@ namespace Mobile_Fitness_Tracker
         public static string FirstName { get; set; }
         //Public variable for Foto
         public static string ProfilePic { get; set; }
-
+        //Get Exercise  cell Id value
         public static int cellValue { get; set; }
+        //Get Workout cell workout name value
+        public static string workoutcellValue { get; set; }
+        //Get Exercise cell exercise name value
+        public static string exercisecellValue { get; set; }
+        //Get Exercise cell exercise name value
+        public static string exercisedescriptionValue { get; set; }
+        //Get Wokout+Exercise cell Id value
+        public static int workoutexercise_Id { get; set; }
+
 
 
 

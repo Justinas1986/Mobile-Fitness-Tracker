@@ -103,16 +103,7 @@
                HorizontalOptions="FillAndExpand"
                VerticalOptions="Start"/>
 
-        </Grid>
-        
-    <Label x:Name="Lblgrid" 
-            Text="Value"
-               Grid.Row="2"            
-               TextColor="Black"
-               VerticalOptions="Start"
-               HorizontalOptions="Start"
-               FontSize="10"/>       
-     
+        </Grid>                
 
         <Button x:Name="BtnAddExercise"
             Text="Add Exercise"                
@@ -133,8 +124,7 @@
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"
-            BorderWidth="1"
-           
+            BorderWidth="1"           
             BorderColor="LightGray"
             Clicked="BtnExerciseDelete_Clicked"/>
 

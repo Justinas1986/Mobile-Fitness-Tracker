@@ -21,21 +21,36 @@ namespace Mobile_Fitness_Tracker
             public string ProfilePic { get; set; }
     }
 
-    
+
     public class ExerciseDBClass
-    {
-
-        // [PrimaryKey, AutoIncrement]
-
-        //Primary key Product_Number
+    {        
         [PrimaryKey]
         [AutoIncrement]
-        public int Id { get; set; }       
+        public int Id { get; set; }
         public string Exercise { get; set; }
         public string Description { get; set; }
-        
-        
 
+    }
+
+    public class WorkoutDBClass
+    {
+        [PrimaryKey]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string Workout{ get; set; }       
+
+    }
+    public class WorkoutExerciseDBClass
+    {
+        [PrimaryKey]
+        [AutoIncrement]
+        public int Id { get; set; }
+      //  public string WorkoutId { get; set; }
+        public string Workout { get; set; }
+       // public string ExerciseId { get; set; }
+        public string Exercise { get; set; }
+        public string Description { get; set; }
+       
 
     }
 

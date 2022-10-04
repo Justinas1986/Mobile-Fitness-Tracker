@@ -76,6 +76,7 @@
         
         <Button x:Name="BtnWorkoutSchedule"
             Text="Workout Schedule"
+            IsEnabled="False"
             Grid.Row="5"      
             Margin="50,5"
             FontSize="20"

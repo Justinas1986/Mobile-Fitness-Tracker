@@ -20,6 +20,8 @@ namespace Mobile_Fitness_Tracker
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<UserDBClass>();//user table
             _database.CreateTableAsync<ExerciseDBClass>();//exercise table
+            _database.CreateTableAsync<WorkoutDBClass>();//workout table
+            _database.CreateTableAsync<WorkoutExerciseDBClass>();//workout+exercise table
         }
 
         //---------------USER PROFILE DB------------------//
@@ -68,19 +70,68 @@ namespace Mobile_Fitness_Tracker
         }
 
         internal async Task DeleteRow()
-        { 
-            //delete table content
-            // await _database.DeleteAllAsync<ExerciseDBClass>();
-            //delete increment ID
+        {             
             int digit = UserGlobalVaraibles.cellValue;
+            //query delete selected row by Id
              await _database.ExecuteAsync($"delete from ExerciseDBClass where Id = {digit} ;");
-
-           // return  _database.QueryAsync<int>("SELECT * FROM ExerciseDBClass").ToListAsync();
-            //await _database.ExecuteAsync("delete from sqlite_sequence where name = 'ExerciseDBClass';");
         }
 
+        //-------------Workout DB-----------------------------//
 
+        public Task<List<WorkoutDBClass>> GetWorkoutAsync()
+        {
+            return _database.Table<WorkoutDBClass>().ToListAsync();
+          
+        }
+        public Task<int> SaveWorkoutAsync(WorkoutDBClass workout)
+        {
+            return _database.InsertAsync(workout);
 
+        }
+
+        //get workout name from grid view
+        public Task<List<WorkoutDBClass>> WorkoutAsync()
+        {
+            string workout = UserGlobalVaraibles.workoutcellValue;
+            return _database.QueryAsync<WorkoutDBClass>($"SELECT Workout FROM WorkoutDBClass WHERE Workout = '{workout}'");
+        }
+
+        //-------------Workout+Exercise DB-----------------------------//
+        //Full tabale list
+        public Task<List<WorkoutExerciseDBClass>> GetWorkoutExerciseAsync()
+        {
+            return _database.Table<WorkoutExerciseDBClass>().ToListAsync();
+
+        }
+        //Save all exercise and workouts to list
+        public Task<int> SaveWorkoutExerciseAsync(WorkoutExerciseDBClass workout)
+        {
+            return _database.InsertAsync(workout);
+
+        }
+        //Get exercise list associated with selected workout
+          public Task<List<WorkoutExerciseDBClass>> WorkoutExerciseAsync()
+          {
+             string workout = UserGlobalVaraibles.workoutcellValue;
+            //Query to get exercises related to selected workout
+            return _database.QueryAsync<WorkoutExerciseDBClass>($"SELECT * FROM WorkoutExerciseDBClass WHERE Workout = '{workout}'");
+          }
+        //delete row 
+        internal async Task DeleteWorkoutExerciseRow()
+        {            
+           int digit = UserGlobalVaraibles.workoutexercise_Id;
+            //query delete selected row by Id
+            await _database.ExecuteAsync($"delete from WorkoutExerciseDBClass where Id = {digit} ;");
+        }
+        //delete all
+        internal async Task DeleteAllWorkoutExercise()
+        {
+            //delete table content
+            await _database.DeleteAllAsync<WorkoutExerciseDBClass>();
+            //delete increment ID
+            await _database.ExecuteAsync("delete from sqlite_sequence where name = 'WorkoutExerciseDBClass';");
+
+        }
 
     }
 

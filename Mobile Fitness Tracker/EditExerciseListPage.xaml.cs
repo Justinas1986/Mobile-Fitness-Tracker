@@ -60,6 +60,7 @@ namespace Mobile_Fitness_Tracker
 
             }
         }
+
         //Method delete All exercises from the Db and list
         async private void BtnExerciseDelete_Clicked(object sender, EventArgs e)
         {    //call CRUD command to delete all records from database        
@@ -70,18 +71,13 @@ namespace Mobile_Fitness_Tracker
 
         //not in use
         private void datagrid_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            // Lblgrid.Text = datagrid.SelectedItem.ToString();
-
+        {      
 
         }
        
         //Delete Row method
         async private void BtnClose_Clicked_1(object sender, EventArgs e)
-        {
-            //get selection to label as reference fro testing
-            Lblgrid.Text = UserGlobalVaraibles.cellValue.ToString();          
-           
+        {                
             //delete row call sql query from database class
             await App.Database.DeleteRow();
             //refresh
@@ -92,11 +88,7 @@ namespace Mobile_Fitness_Tracker
         //not in use
         private void datagrid_CurrentCellActivated(object sender, CurrentCellActivatedEventArgs e)
         {
-            /* var dataRow = datagrid.GetRowGenerator().Items.FirstOrDefault(x => x.RowIndex == e.CurrentRowColumnIndex.RowIndex);
-             var CellValue = datagrid.GetCellValue(dataRow.RowData, datagrid.Columns[e.CurrentRowColumnIndex.ColumnIndex].MappingName);
-             Lblgrid.Text = dataRow.ToString();*/
-
-
+            
         }
         
        

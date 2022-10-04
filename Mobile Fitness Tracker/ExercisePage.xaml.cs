@@ -41,7 +41,8 @@ namespace Mobile_Fitness_Tracker
 
         private void BtnWorkoutList_Clicked(object sender, EventArgs e)
         {
-
+            //Navigate to Workout List Page
+            Navigation.PushAsync(new WorkoutListPage());
         }
 
         private void BtnWorkoutSchedule_Clicked(object sender, EventArgs e)
