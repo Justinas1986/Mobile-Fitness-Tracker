@@ -36,19 +36,29 @@ namespace Mobile_Fitness_Tracker
         //method add values to WorkoutExercise table on button click
         async private void BtnExerciseAdd_Clicked(object sender, EventArgs e)
         {
-            //Save to database
-            await App.Database.SaveWorkoutExerciseAsync(new WorkoutExerciseDBClass
+            //check is datagrid is not selected display alert
+            if (exercisedatagrid.SelectedIndex < 0)
             {
-                //Get workout and exercise information to database                   
-                Workout = UserGlobalVaraibles.workoutcellValue,
-                Exercise = UserGlobalVaraibles.exercisecellValue,
-                Description =  UserGlobalVaraibles.exercisedescriptionValue
-                //Index = datagrid.SelectedIndex.ToString()
+                //display alert to select an exercise on datagrid
+                DisplayAlert("Selection Error", "Please select exercise to be added", "Close");
+            }
+            //if datagrid exercise selected - assing selected row to workout
+            else
+            {
+                //Save to database
+                await App.Database.SaveWorkoutExerciseAsync(new WorkoutExerciseDBClass
+                {
+                    //Get workout and exercise information to database                   
+                    Workout = UserGlobalVaraibles.workoutcellValue,
+                    Exercise = UserGlobalVaraibles.exercisecellValue,
+                    Description = UserGlobalVaraibles.exercisedescriptionValue
+                    //Index = datagrid.SelectedIndex.ToString()
 
-            });
+                });
 
-            //refresh screen
-            OnAppearing();
+                //refresh screen
+                OnAppearing();
+            }
 
         }
 
@@ -84,11 +94,21 @@ namespace Mobile_Fitness_Tracker
         //Method delete selected row from WorkoutExercise table on button click
         async private void BtnDeleteWorkoutExercise_Clicked(object sender, EventArgs e)
         {
-            await App.Database.DeleteWorkoutExerciseRow();
-            OnAppearing();
+            //check if workoutexercisedatagrid is not selected display alert
+            if (workoutexercisedatagrid.SelectedIndex < 0)
+            {
+                //display alert to select an exercise on datagrid
+                DisplayAlert("Selection Error", "Please select exercise to be deleted", "Close");
+            }
+            //if datagrid exercise selected - delete selected row
+            else
+            {
+                await App.Database.DeleteWorkoutExerciseRow();
+                OnAppearing();
+            }
         }
 
-        //Method delete selected row from WorkoutExercise Grid
+        //Method get selected row value from WorkoutExercise Grid on selection (tapped)
         private void workoutexercisedatagrid_GridTapped(object sender, GridTappedEventArgs e)
         {
           

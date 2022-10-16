@@ -52,17 +52,25 @@
                     </OnIdiom>
                 </dg:DataGrid.HeaderFontSize>
                 <dg:DataGrid.Columns>
-                    <dg:DataGridColumn Title="No." PropertyName="Id" Width="40"></dg:DataGridColumn>
+                    <dg:DataGridColumn Title="ID" PropertyName="Id" Width="40"></dg:DataGridColumn>
+                    
                     <dg:DataGridColumn PropertyName="Exercise" Width="*">
                         <dg:DataGridColumn.FormattedTitle>
                             <FormattedString>
                                 <Span Text="Exercise List" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
                             </FormattedString>
+                        </dg:DataGridColumn.FormattedTitle>                       
+                    </dg:DataGridColumn>
+                    <dg:DataGridColumn PropertyName="Description" Width="*">
+                        <dg:DataGridColumn.FormattedTitle>
+                            <FormattedString>
+                                <Span Text="Description" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                            </FormattedString>
                         </dg:DataGridColumn.FormattedTitle>
                     </dg:DataGridColumn>
 
-                    
-                  
+
+
                 </dg:DataGrid.Columns>
                 <dg:DataGrid.RowsBackgroundColorPalette>
                     <dg:PaletteCollection>

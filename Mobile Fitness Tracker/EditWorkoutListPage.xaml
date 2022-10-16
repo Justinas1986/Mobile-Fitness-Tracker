@@ -49,7 +49,7 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="No."  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
+                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
                     <Syncfusion:GridTextColumn MappingName="Exercise" HeaderText="My Exercise" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Description" HeaderText="Description" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                 </Syncfusion:SfDataGrid.Columns>
@@ -80,7 +80,7 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="No."  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
+                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
                     <Syncfusion:GridTextColumn MappingName="Workout" HeaderText="My Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Exercise" HeaderText="My Exercise" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Description" HeaderText="Description" HeaderFontAttribute="Bold" HeaderFont="Italic"/>

@@ -59,14 +59,31 @@ namespace Mobile_Fitness_Tracker
                 OnAppearing();
 
             }
+            //if exercise or description is empty (missing) display alert
+            else
+            {
+                //Display alert if missing exercise and description entry
+                DisplayAlert("Missing  Input", "Please enter exercise and description", "Close");
+            }
         }
 
         //Method delete All exercises from the Db and list
         async private void BtnExerciseDelete_Clicked(object sender, EventArgs e)
-        {    //call CRUD command to delete all records from database        
-            await App.Database.DeleteAllExrcises();
-            //refresh datagrid
-             OnAppearing();
+        {
+            //display alert to delete all exercises from the list
+            bool answer = await DisplayAlert("Alert", "Would you like to delete all exercises?", "Yes", "No");
+            //if Yes delete all
+            if(answer==true)
+            {
+                //call CRUD command to delete all records from database        
+                await App.Database.DeleteAllExrcises();
+                //refresh datagrid
+                OnAppearing();
+            }
+            //if no - return (do nothing)
+            return;
+
+            
         }
 
         //not in use
@@ -77,12 +94,23 @@ namespace Mobile_Fitness_Tracker
        
         //Delete Row method
         async private void BtnClose_Clicked_1(object sender, EventArgs e)
-        {                
-            //delete row call sql query from database class
-            await App.Database.DeleteRow();
-            //refresh
-            OnAppearing();
+        {
+           //check is datagrid is not selected display alert
+            if (datagrid.SelectedIndex<0)
+            {
+                //display alert to select an exercise on datagrid
+                DisplayAlert("Selection Error", "Please select exercise to be deleted", "Close");
+            }
+            //if datagrid exercise selected - delete selected row
+            else
+            {               
+                //delete row call sql query from database class
+                await App.Database.DeleteRow();
+                //refresh
+                OnAppearing();
+            }
            
+
         }
 
         //not in use

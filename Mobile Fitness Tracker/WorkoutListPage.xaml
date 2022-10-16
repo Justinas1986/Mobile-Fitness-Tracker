@@ -58,7 +58,7 @@
 
 
         <Entry x:Name="EntrWorkout"
-               Placeholder="Add New Workout"
+               Placeholder="Create New Workout"
                PlaceholderColor="Silver"
                Grid.Row="2"                 
                TextColor="Black"               
@@ -66,7 +66,7 @@
                VerticalOptions="Start"/>     
 
         <Button x:Name="BtnWorkoutAdd"
-            Text="Add"                           
+            Text="Create Workout"                           
             Grid.Row="4"      
             Margin="50,5"
             FontSize="20"
