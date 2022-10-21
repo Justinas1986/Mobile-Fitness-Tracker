@@ -42,9 +42,6 @@ namespace Mobile_Fitness_Tracker
             Navigation.PushAsync(new EditExerciseListPage());
         }
 
-        private void BtnExerciseClose_Clicked(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

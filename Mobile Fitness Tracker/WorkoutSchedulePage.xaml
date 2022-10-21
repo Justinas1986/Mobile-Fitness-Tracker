@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid" 
+             x:Class="Mobile_Fitness_Tracker.WorkoutSchedulePage"
              xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-             x:Class="Mobile_Fitness_Tracker.WorkoutListPage"             
-             Title="Workout List">
+             Title="Workout Schedule">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0,1">
@@ -19,8 +18,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="260"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
@@ -29,7 +28,7 @@
 
 
         <StackLayout x:Name="BasicInfo" Margin="5,5"  Grid.Row="0" >
-            <Label Text="Workout List"                  
+            <Label Text="Workout Schedule"                  
                HorizontalOptions="Center"
                VerticalOptions="Start"
                TextColor="Black"
@@ -41,9 +40,9 @@
 
         <ContentView Grid.Row="1" Margin="2,2,0,20">
             <!-- Place new controls here -->
-            <Syncfusion:SfDataGrid x:Name="workoutdatagrid"    
+            <Syncfusion:SfDataGrid x:Name="scheduledatagrid"    
                                    AutoGenerateColumns="False"                                   
-                                   GridTapped="workoutdatagrid_GridTapped"                                     
+                                    GridTapped="workoutdatagrid_GridTapped"                                   
                                    AllowSorting="True"
                                    ColumnSizer="Star"
                                    SelectionMode="Single"
@@ -51,22 +50,34 @@
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
                     <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
-                    <Syncfusion:GridTextColumn MappingName="Workout" HeaderText="Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>                    
+                    <Syncfusion:GridTextColumn MappingName="Workout" HeaderText="Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
+                    <Syncfusion:GridTextColumn MappingName="Date" HeaderText="Date" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
+                    <Syncfusion:GridTextColumn MappingName="Time" HeaderText="Time" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                 </Syncfusion:SfDataGrid.Columns>
             </Syncfusion:SfDataGrid>
         </ContentView>
 
+        <Label x:Name="lbldate"
+             
+              Grid.Row="5" 
+              FontSize="20"
+              TextColor="Black"/>
+        <DatePicker x:Name="PckDate"
+              
+              Format="ddd d MMM"
+              Grid.Row="2" 
+              FontSize="20"
+              TextColor="Black"/>
+        
+        <TimePicker x:Name="PckTime"
+              Format="HH:mm"
+              Grid.Row="3" 
+              FontSize="20"
+              TextColor="Black"/>
 
-        <Entry x:Name="EntrWorkout"
-               Placeholder="Create New Workout"
-               PlaceholderColor="Silver"
-               Grid.Row="2"                 
-               TextColor="Black"               
-               HorizontalOptions="FillAndExpand"
-               VerticalOptions="Start"/>     
 
-        <Button x:Name="BtnWorkoutAdd"
-            Text="Create Workout"                           
+        <Button x:Name="BtnWorkoutSchedule"
+            Text="Schedule"                           
             Grid.Row="4"      
             Margin="50,5"
             FontSize="20"
@@ -74,24 +85,14 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
-            Clicked="BtnWorkoutAdd_Clicked"/>
+            Clicked="BtnWorkoutSchedule_Clicked"/>
 
-        <Button x:Name="BtnWorkoutEdit"
-            Text="Edit" 
-            IsEnabled="False"
-            Grid.Row="5"      
-            Margin="50,5"
-            FontSize="20"
-            TextColor="Black"
-            BackgroundColor="White"
-            BorderWidth="1"
-            BorderColor="LightGray"
-            Clicked="BtnWorkoutEdit_Clicked"/>
+       
 
 
 
-        <Button x:Name="BtnWorkoutDelete"
-            Text="Delete Workout"
+        <Button x:Name="BtnWorkoutClose"
+            Text="test"
             Grid.Row="6"      
             Margin="50,5"
             FontSize="20"
@@ -99,9 +100,7 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
-            Clicked="BtnWorkoutDelete_Clicked"/>
-
-
+            Clicked="BtnWorkoutClose_Clicked"/>
 
 
 
@@ -109,3 +108,4 @@
 
 
 </ContentPage>
+      

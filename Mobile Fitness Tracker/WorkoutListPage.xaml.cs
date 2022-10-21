@@ -7,6 +7,7 @@ using Syncfusion.SfDataGrid.XForms;
 using Xamarin.Forms;
 using Xamarin.Forms.DataGrid;
 using Xamarin.Forms.Xaml;
+using static SQLite.TableMapping;
 
 namespace Mobile_Fitness_Tracker
 {
@@ -65,8 +66,9 @@ namespace Mobile_Fitness_Tracker
             //Navigate to Edit Workout List Page
             Navigation.PushAsync(new EditWorkoutListPage());
         }
+       
 
-        //Method get workout value from datagrid on touch selection (tapped)
+        //Method get workout value and ID from datagrid on touch selection (tapped)
         private void workoutdatagrid_GridTapped(object sender, Syncfusion.SfDataGrid.XForms.GridTappedEventArgs e)
         {
             foreach (var column in workoutdatagrid.Columns)
@@ -76,13 +78,42 @@ namespace Mobile_Fitness_Tracker
                 {
                     //get row data
                     var rowData = workoutdatagrid.GetRecordAtRowIndex(workoutdatagrid.SelectedIndex);
-                    //assign Id to global varaible
+                    //assign workout to global varaible
                     UserGlobalVaraibles.workoutcellValue = workoutdatagrid.GetCellValue(rowData, column.MappingName).ToString();
+                   
                 }                //enable Edit button once workout is selected
                 BtnWorkoutEdit.IsEnabled = true;
-
-            } 
+               
+                //set collumn mapping name as reference ID
+                if (column.MappingName == "Id")
+                {
+                    //get row data
+                    var rowData = workoutdatagrid.GetRecordAtRowIndex(workoutdatagrid.SelectedIndex);
+                    //assign Id to global varaible
+                    UserGlobalVaraibles.cellValue = int.Parse(workoutdatagrid.GetCellValue(rowData, column.MappingName).ToString());
+                }
+            }
         }
-       
+
+
+
+//Mehod delete workout from the list on button click
+async private void BtnWorkoutDelete_Clicked(object sender, EventArgs e)
+        {
+            //check is datagrid is not selected display alert
+            if (workoutdatagrid.SelectedIndex < 0)
+            {
+                //display alert to select an exercise on datagrid
+                DisplayAlert("Selection Error", "Please select workout to be deleted", "Close");
+            }
+            //if datagrid workout selected - delete selected row
+            else
+            {
+                //delete row call sql query from database class
+                await App.Database.DeleteWorkoutRow();
+                //refresh
+                OnAppearing();
+            }
+        }
     }
 }

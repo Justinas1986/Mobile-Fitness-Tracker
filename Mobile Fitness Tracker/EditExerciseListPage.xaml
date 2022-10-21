@@ -106,7 +106,7 @@
         </Grid>                
 
         <Button x:Name="BtnAddExercise"
-            Text="Add Exercise"                
+            Text="Create Exercise"                
             Grid.Row="4"      
             Margin="50,5"
             FontSize="20"

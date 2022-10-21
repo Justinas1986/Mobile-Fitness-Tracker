@@ -210,20 +210,7 @@
             BorderWidth="1"
             BorderColor="LightGray"
             Grid.ColumnSpan="3"
-            Clicked="BtnCreateProfile_Clicked"/>
-        
-
-        <Button x:Name="BtnClose"
-            Text="x Close"                
-            Grid.Row="5"      
-            Margin="50,20"
-            FontSize="20"
-            TextColor="Black"
-            BackgroundColor="White"
-            BorderWidth="1"
-            BorderColor="LightGray"
-            Grid.ColumnSpan="3"
-            Clicked="BtnClose_Clicked"/>
+            Clicked="BtnCreateProfile_Clicked"/>       
 
 
 

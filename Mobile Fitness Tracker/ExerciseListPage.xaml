@@ -17,7 +17,7 @@
 
         <Grid.RowDefinitions >
             <RowDefinition Height="60" />
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="350"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
@@ -26,7 +26,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <StackLayout x:Name="BasicInfo" Margin="10,10,10,5" Grid.Row="0" Grid.Column="0">
+        <StackLayout x:Name="BasicInfo" Margin="5,5,5,5" Grid.Row="0" Grid.Column="0">
             <Label Text="Exercise List"
                HorizontalOptions="Center"
                VerticalOptions="Start"
@@ -37,8 +37,7 @@
         </StackLayout>
 
 
-
-        <ContentView Grid.Row="1" >
+        <ContentView Grid.Row="1" Margin="5,5,5,5" >
             <!-- Place new controls here -->
             <dg:DataGrid x:Name="datagrid"   RowHeight="40" HeaderHeight="40"  
                     BorderColor="#CCCCCC" HeaderBackground="#E0E6F8"  ActiveRowColor="#8899AA">
@@ -84,7 +83,7 @@
 
 
         <Button x:Name="BtnExerciseEdit"
-            Text="Edit"                           
+            Text="New Exercise"                           
             Grid.Row="3"      
             Margin="50,5"
             FontSize="20"
@@ -96,16 +95,7 @@
 
        
 
-        <Button x:Name="BtnExerciseClose"
-            Text="Close"
-            Grid.Row="4"      
-            Margin="50,5"
-            FontSize="20"
-            TextColor="Black"
-            BackgroundColor="White"
-            BorderWidth="1"
-            BorderColor="LightGray"
-            Clicked="BtnExerciseClose_Clicked"/>
+     
 
       
 

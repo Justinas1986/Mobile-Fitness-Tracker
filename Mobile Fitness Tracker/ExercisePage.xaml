@@ -14,11 +14,9 @@
         </Grid.Background>
 
 
-
-
         <Grid.RowDefinitions >
             <RowDefinition Height="80" />
-            <RowDefinition Height="140"/>
+            <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
@@ -76,7 +74,7 @@
         
         <Button x:Name="BtnWorkoutSchedule"
             Text="Workout Schedule"
-            IsEnabled="False"
+            IsEnabled="True"
             Grid.Row="5"      
             Margin="50,5"
             FontSize="20"

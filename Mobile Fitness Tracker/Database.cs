@@ -78,11 +78,13 @@ namespace Mobile_Fitness_Tracker
 
         //-------------Workout DB-----------------------------//
 
+        //get all workout values from database
         public Task<List<WorkoutDBClass>> GetWorkoutAsync()
         {
             return _database.Table<WorkoutDBClass>().ToListAsync();
           
         }
+        //save to workout to database
         public Task<int> SaveWorkoutAsync(WorkoutDBClass workout)
         {
             return _database.InsertAsync(workout);
@@ -94,6 +96,22 @@ namespace Mobile_Fitness_Tracker
         {
             string workout = UserGlobalVaraibles.workoutcellValue;
             return _database.QueryAsync<WorkoutDBClass>($"SELECT Workout FROM WorkoutDBClass WHERE Workout = '{workout}'");
+        }
+
+        //delete workout row from data grid view
+        internal async Task DeleteWorkoutRow()
+        {
+            int digit = UserGlobalVaraibles.cellValue;
+            //query delete selected row by Id
+            await _database.ExecuteAsync($"delete from WorkoutDBClass where Id = {digit} ;");
+        }
+
+        //update workout with date and time query
+        public Task<List<WorkoutDBClass>> WorkoutUpdateAsync()
+        {
+            string workout = UserGlobalVaraibles.workoutcellValue;
+            //update workout with date and time
+            return _database.QueryAsync<WorkoutDBClass>($"UPDATE WorkoutDBClass SET Date = '{UserGlobalVaraibles.Date}', Time = '{UserGlobalVaraibles.Time}' WHERE Workout = '{workout}' ");
         }
 
         //-------------Workout+Exercise DB-----------------------------//
@@ -119,7 +137,7 @@ namespace Mobile_Fitness_Tracker
         //delete row 
         internal async Task DeleteWorkoutExerciseRow()
         {            
-           int digit = UserGlobalVaraibles.workoutexercise_Id;
+           int digit = UserGlobalVaraibles.workoutexercise_Id;           
             //query delete selected row by Id
             await _database.ExecuteAsync($"delete from WorkoutExerciseDBClass where Id = {digit} ;");
         }

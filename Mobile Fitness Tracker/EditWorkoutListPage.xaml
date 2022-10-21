@@ -72,7 +72,7 @@
         <ContentView Grid.Row="3">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="workoutexercisedatagrid"    
-                                   AutoGenerateColumns="True"                                   
+                                   AutoGenerateColumns="False"                                   
                                    GridTapped="workoutexercisedatagrid_GridTapped"                        
                                    AllowSorting="True"
                                    ColumnSizer="Star"

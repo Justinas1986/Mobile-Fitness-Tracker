@@ -3,6 +3,8 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.IO;
+using Plugin.LocalNotification;
+using Plugin.LocalNotification.EventArgs;
 
 namespace Mobile_Fitness_Tracker
 {
@@ -29,6 +31,7 @@ namespace Mobile_Fitness_Tracker
         public App()
             {
                 InitializeComponent();
+           
             //initialize DataComponent in App Startup of App.xaml.cs 
             Xamarin.Forms.DataGrid.DataGridComponent.Init();
             // MainPage = new MainPage();
@@ -38,6 +41,7 @@ namespace Mobile_Fitness_Tracker
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NzI2MTYzQDMyMzAyZTMyMmUzMGtOaVhudW9uZi9Gc3J6Z1Fwcm0zeG5Ea1VyRUtjdHZYamp4aG5xVzZQS1k9");
 
         }
+       
 
         protected override void OnStart()
             {

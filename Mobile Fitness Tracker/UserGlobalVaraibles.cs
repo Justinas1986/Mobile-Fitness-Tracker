@@ -20,6 +20,11 @@ namespace Mobile_Fitness_Tracker
         public static string exercisedescriptionValue { get; set; }
         //Get Wokout+Exercise cell Id value
         public static int workoutexercise_Id { get; set; }
+        //Get date from picker to assign to workout
+        public static string Date { get; set; }
+        //Get time from picker to assign to workout
+        public static string Time { get; set; }
+
 
 
 

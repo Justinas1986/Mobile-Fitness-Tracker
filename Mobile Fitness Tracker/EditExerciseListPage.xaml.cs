@@ -82,16 +82,10 @@ namespace Mobile_Fitness_Tracker
             }
             //if no - return (do nothing)
             return;
-
-            
+                        
         }
 
-        //not in use
-        private void datagrid_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {      
-
-        }
-       
+              
         //Delete Row method
         async private void BtnClose_Clicked_1(object sender, EventArgs e)
         {
@@ -106,6 +100,7 @@ namespace Mobile_Fitness_Tracker
             {               
                 //delete row call sql query from database class
                 await App.Database.DeleteRow();
+                await App.Database.DeleteWorkoutExerciseRow();
                 //refresh
                 OnAppearing();
             }

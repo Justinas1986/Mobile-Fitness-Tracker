@@ -1,5 +1,6 @@
 ﻿using System;
-
+using Plugin.LocalNotification;
+using Plugin.LocalNotification.EventArgs;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -14,18 +15,22 @@ namespace Mobile_Fitness_Tracker.Droid
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            //added this for android notofications
+            LocalNotificationCenter.CreateNotificationChannel();
             //added this line
             await CrossMedia.Current.Initialize();
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+           
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
+        {          
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+       
     }
 }

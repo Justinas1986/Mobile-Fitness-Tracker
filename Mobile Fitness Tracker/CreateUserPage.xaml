@@ -58,7 +58,8 @@
                HorizontalOptions="End"
                FontSize="20"/>
         <Entry x:Name="EntrFirstName"
-              Placeholder="First Name"
+               Placeholder="First Name"
+               Text="{Binding FirstName}"
                PlaceholderColor="Silver"
                Grid.Row="1"
                Grid.Column="1"
@@ -185,7 +186,7 @@
 
 
         <Button x:Name="BtnCreateUser"
-            Text="Create User"                
+            Text="Update User Info"                
             Grid.Row="9"      
             Margin="50,20"
             FontSize="20"

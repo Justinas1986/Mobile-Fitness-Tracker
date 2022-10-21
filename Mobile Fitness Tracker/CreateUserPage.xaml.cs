@@ -20,26 +20,21 @@ namespace Mobile_Fitness_Tracker
         public CreateUserPage()
         {
             InitializeComponent();
+            
         }
         public string name;
         public string Firstname;
        // public string Lastname;
 
         async private void BtnCreateUser_Clicked(object sender, EventArgs e)
-        {
-            
-
-            //delete records from database every time on click (refresh with new data)
-            await App.Database.DeleteAll();
-            
-            
-
-
-
-
+        {           
+            //check if all entries are filled
             if (!string.IsNullOrWhiteSpace(EntrFirstName.Text) && !string.IsNullOrWhiteSpace(EntrLastName.Text) && !string.IsNullOrWhiteSpace(EntrPreferredName.Text) &&
                 !string.IsNullOrWhiteSpace(EntrWeight.Text) && !string.IsNullOrWhiteSpace(EntrHeight.Text) && !string.IsNullOrWhiteSpace(EntrAge.Text) && EntrAge.Text!=("."))
             {
+                //delete records from database every time on click (refresh with new data)
+                await App.Database.DeleteAll();
+                //Save user info in to database
                 await App.Database.SavePersonAsync(new UserDBClass
                 {
                     //Get user profile input information to database
@@ -49,28 +44,29 @@ namespace Mobile_Fitness_Tracker
                     Weight = double.Parse(EntrWeight.Text),
                     Height = double.Parse(EntrHeight.Text),
                     Age = int.Parse(EntrAge.Text),
-
                     ProfilePic = name,
-
                     //Calculate BMI and pass value to database
                     BMI = Math.Round(703 * double.Parse(EntrWeight.Text) / Math.Pow(12 * double.Parse(EntrHeight.Text), 2), 2)
-                });
+                    
+            });
 
                 //Clear entry inputs
-                EntrFirstName.Text = string.Empty;
+              /*  EntrFirstName.Text = string.Empty;
                 EntrLastName.Text = string.Empty;
                 EntrPreferredName.Text = string.Empty;
                 EntrWeight.Text = string.Empty;
                 EntrHeight.Text = string.Empty;
-                EntrAge.Text = string.Empty;
-
+                EntrAge.Text = string.Empty;*/
+               
                 
                 //Navigate to MyProfilePage
                 await Navigation.PushAsync(new MyProfilePage());
 
             }
+            //check if there are empty input fields
             else
             {
+                //display alert
                 DisplayAlert("Invalid Input", "Please fill entry fields", "Close");
             }
 
@@ -83,6 +79,7 @@ namespace Mobile_Fitness_Tracker
                      //get a picture from gallery and resize
                       var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions() { PhotoSize = PhotoSize.MaxWidthHeight, MaxWidthHeight = 600 });
                        name = file.Path;
+                  //set picture path to a global variable
                    UserGlobalVaraibles.ProfilePic = file.Path;
 
                 ImgProfile.Source = ImageSource.FromStream(() =>
@@ -97,9 +94,7 @@ namespace Mobile_Fitness_Tracker
                  {
                      DisplayAlert("Something went wrong", ex.Message, "Close");
                  }
-            }
-
-
-
         }
+
+    }
 }

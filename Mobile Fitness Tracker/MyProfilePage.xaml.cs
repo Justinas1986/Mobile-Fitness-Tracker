@@ -22,7 +22,7 @@ namespace Mobile_Fitness_Tracker
         public MyProfilePage()
         {
             InitializeComponent();
-            OnAppearing();
+           // OnAppearing();
             
 
         }
@@ -32,17 +32,17 @@ namespace Mobile_Fitness_Tracker
             base.OnAppearing();
             //Populate collectionview1 with user information from database
             collectionView1.ItemsSource = await App.Database.GetPeopleAsync();
+            
+            //Change Button Create Profile text into Update Profile once the user is created
+            if(collectionView1.ItemsSource != null)
+            {
+                //change button name
+                BtnCreateProfile.Text = "Update Profile";
+            }
                         
         }
 
-        private void BtnClose_Clicked(object sender, EventArgs e)
-        {
-            //Return back to MainPage
-          //  Application.Current.MainPage.Navigation.PopAsync();
-            //Navigate to MainPage
-            Navigation.PushAsync(new MainPage());
-
-        }
+       
                         
 
         private void BtnCreateProfile_Clicked(object sender, EventArgs e)
