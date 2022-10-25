@@ -38,21 +38,31 @@ namespace Mobile_Fitness_Tracker
         [AutoIncrement]
         public int Id { get; set; }
         public string Workout{ get; set; }
-        public string Date { get; set; }
-        public string Time { get; set; }
+        //public string Date { get; set; }
+        //public string Time { get; set; }
 
     }
+
     public class WorkoutExerciseDBClass
     {
         [PrimaryKey]
         [AutoIncrement]
-        public int Id { get; set; }
-      //  public string WorkoutId { get; set; }
+        public int Id { get; set; }       
         public string Workout { get; set; }
-       // public string ExerciseId { get; set; }
+        public int ExerciseId { get; set; }
         public string Exercise { get; set; }
         public string Description { get; set; }       
 
+    }
+
+    public class WorkoutScheduleDBClass
+    {
+        [PrimaryKey]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string Workout { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
 
     }
 

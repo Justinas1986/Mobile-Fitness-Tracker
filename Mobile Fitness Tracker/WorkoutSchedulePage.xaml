@@ -41,8 +41,9 @@
         <ContentView Grid.Row="1" Margin="2,2,0,20">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="scheduledatagrid"    
+                                    ItemsSource="{Binding Source=PckWorkout.SelectedItem}"
                                    AutoGenerateColumns="False"                                   
-                                    GridTapped="workoutdatagrid_GridTapped"                                   
+                                    GridTapped="scheduledatagrid_GridTapped"                                   
                                    AllowSorting="True"
                                    ColumnSizer="Star"
                                    SelectionMode="Single"
@@ -50,35 +51,51 @@
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
                     <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
-                    <Syncfusion:GridTextColumn MappingName="Workout" HeaderText="Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
+                    <Syncfusion:GridTextColumn  ValueBinding="{Binding Workout}"  HeaderText="Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Date" HeaderText="Date" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Time" HeaderText="Time" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                 </Syncfusion:SfDataGrid.Columns>
             </Syncfusion:SfDataGrid>
         </ContentView>
 
+        <Picker x:Name="PckWorkout"
+               Title="Select Workout"
+               ItemDisplayBinding="{Binding Workout}"   
+               ItemsSource="{Binding Workout}"
+               SelectedItem="{Binding SelectedWorkout}"
+               TextColor="Black"
+               TitleColor="Black"
+               Grid.Row="2"             
+               FontSize="20"
+               SelectedIndexChanged="PckWorkout_SelectedIndexChanged">
+           
+          
+        </Picker>
+
+        
         <Label x:Name="lbldate"
-             
-              Grid.Row="5" 
+               
+                Text="Twst" 
+              Grid.Row="6" 
               FontSize="20"
               TextColor="Black"/>
+        
         <DatePicker x:Name="PckDate"
-              
               Format="ddd d MMM"
-              Grid.Row="2" 
+              Grid.Row="3" 
               FontSize="20"
               TextColor="Black"/>
         
         <TimePicker x:Name="PckTime"
               Format="HH:mm"
-              Grid.Row="3" 
+              Grid.Row="4" 
               FontSize="20"
               TextColor="Black"/>
 
 
         <Button x:Name="BtnWorkoutSchedule"
             Text="Schedule"                           
-            Grid.Row="4"      
+            Grid.Row="5"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -86,13 +103,9 @@
             BorderWidth="1"
             BorderColor="LightGray"
             Clicked="BtnWorkoutSchedule_Clicked"/>
-
-       
-
-
-
-        <Button x:Name="BtnWorkoutClose"
-            Text="test"
+        
+        <Button x:Name="BtnDeleteWorkoutSchedule"
+            Text="Delete Schedule"                           
             Grid.Row="6"      
             Margin="50,5"
             FontSize="20"
@@ -100,9 +113,9 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
-            Clicked="BtnWorkoutClose_Clicked"/>
-
-
+            Clicked="BtnDeleteWorkoutSchedule_Clicked"/>
+       
+    
 
     </Grid>
 

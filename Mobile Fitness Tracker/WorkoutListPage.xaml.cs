@@ -111,6 +111,8 @@ async private void BtnWorkoutDelete_Clicked(object sender, EventArgs e)
             {
                 //delete row call sql query from database class
                 await App.Database.DeleteWorkoutRow();
+                //delete also exercises related to particular workout
+                await App.Database.DeleteAllWorkoutExercise();
                 //refresh
                 OnAppearing();
             }

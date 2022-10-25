@@ -77,7 +77,7 @@
             Clicked="BtnWorkoutAdd_Clicked"/>
 
         <Button x:Name="BtnWorkoutEdit"
-            Text="Edit" 
+            Text="Workout Properties" 
             IsEnabled="False"
             Grid.Row="5"      
             Margin="50,5"

@@ -14,6 +14,8 @@ namespace Mobile_Fitness_Tracker
         public static int cellValue { get; set; }
         //Get Workout cell workout name value
         public static string workoutcellValue { get; set; }
+        //Get Exercise ID value
+        public static int exerciseIdValue { get; set; }
         //Get Exercise cell exercise name value
         public static string exercisecellValue { get; set; }
         //Get Exercise cell exercise name value

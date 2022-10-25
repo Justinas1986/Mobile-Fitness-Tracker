@@ -66,7 +66,8 @@ namespace Mobile_Fitness_Tracker
                 DisplayAlert("Missing  Input", "Please enter exercise and description", "Close");
             }
         }
-
+        
+        /* NOT IN USE
         //Method delete All exercises from the Db and list
         async private void BtnExerciseDelete_Clicked(object sender, EventArgs e)
         {
@@ -83,10 +84,10 @@ namespace Mobile_Fitness_Tracker
             //if no - return (do nothing)
             return;
                         
-        }
+        }*/
 
               
-        //Delete Row method
+       /* //Delete Row method
         async private void BtnClose_Clicked_1(object sender, EventArgs e)
         {
            //check is datagrid is not selected display alert
@@ -100,13 +101,13 @@ namespace Mobile_Fitness_Tracker
             {               
                 //delete row call sql query from database class
                 await App.Database.DeleteRow();
-                await App.Database.DeleteWorkoutExerciseRow();
+                await App.Database.DeleteWorkoutExerciseRow2();
                 //refresh
                 OnAppearing();
             }
            
 
-        }
+        }*/
 
         //not in use
         private void datagrid_CurrentCellActivated(object sender, CurrentCellActivatedEventArgs e)
@@ -131,8 +132,24 @@ namespace Mobile_Fitness_Tracker
             }
           
         }
-
-
-
+        //Delete Row method
+        async private void BtnDeleteRow_Clicked(object sender, EventArgs e)
+        {
+            //check is datagrid is not selected display alert
+            if (datagrid.SelectedIndex < 0)
+            {
+                //display alert to select an exercise on datagrid
+                DisplayAlert("Selection Error", "Please select exercise to be deleted", "Close");
+            }
+            //if datagrid exercise selected - delete selected row
+            else
+            {
+                //delete row call sql query from database class
+                await App.Database.DeleteRow();
+                await App.Database.DeleteWorkoutExerciseRow2();
+                //refresh
+                OnAppearing();
+            }
+        }
     }
 }

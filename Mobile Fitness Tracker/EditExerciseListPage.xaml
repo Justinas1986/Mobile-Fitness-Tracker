@@ -117,27 +117,18 @@
            
             Clicked="BtnAddExercise_Clicked"/>
 
-        <Button x:Name="BtnExerciseDelete"
-            Text="Delete All"
-            Grid.Row="5"      
-            Margin="50,5"
-            FontSize="20"
-            TextColor="Black"
-            BackgroundColor="White"
-            BorderWidth="1"           
-            BorderColor="LightGray"
-            Clicked="BtnExerciseDelete_Clicked"/>
+     
 
-        <Button x:Name="BtnClose"
-            Text="Delete row"                
-            Grid.Row="6"      
+        <Button x:Name="BtnDeleteRow"
+            Text="Delete Exercise"                
+            Grid.Row="5"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"          
-            Clicked="BtnClose_Clicked_1"/>
+            Clicked="BtnDeleteRow_Clicked"/>
 
 
 

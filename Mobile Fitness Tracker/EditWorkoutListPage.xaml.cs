@@ -48,7 +48,8 @@ namespace Mobile_Fitness_Tracker
                 //Save to database
                 await App.Database.SaveWorkoutExerciseAsync(new WorkoutExerciseDBClass
                 {
-                    //Get workout and exercise information to database                   
+                    //Get workout and exercise information to database
+                    ExerciseId = UserGlobalVaraibles.exerciseIdValue,
                     Workout = UserGlobalVaraibles.workoutcellValue,
                     Exercise = UserGlobalVaraibles.exercisecellValue,
                     Description = UserGlobalVaraibles.exercisedescriptionValue
@@ -68,7 +69,15 @@ namespace Mobile_Fitness_Tracker
         {
             foreach (var column in exercisedatagrid.Columns)
             {
-               
+                //set collumn mapping exercise Id as reference Id
+                if (column.MappingName == "Id")
+                {
+                    //get row data exercise name
+                    var rowData = exercisedatagrid.GetRecordAtRowIndex(exercisedatagrid.SelectedIndex);
+                    //assign exercise name to global varaible
+                    UserGlobalVaraibles.exerciseIdValue = int.Parse(exercisedatagrid.GetCellValue(rowData, column.MappingName).ToString());
+                    //  UserGlobalVaraibles.exercisedescriptionValue = exercisedatagrid.GetCellValue(rowData, column.MappingName).ToString();
+                }
                 //set collumn mapping name as reference Exercise
                 if (column.MappingName == "Exercise")
                 {
@@ -76,7 +85,7 @@ namespace Mobile_Fitness_Tracker
                     var rowData = exercisedatagrid.GetRecordAtRowIndex(exercisedatagrid.SelectedIndex);
                     //assign exercise name to global varaible
                     UserGlobalVaraibles.exercisecellValue = exercisedatagrid.GetCellValue(rowData, column.MappingName).ToString();
-                    UserGlobalVaraibles.exercisedescriptionValue = exercisedatagrid.GetCellValue(rowData, column.MappingName).ToString();
+                  //  UserGlobalVaraibles.exercisedescriptionValue = exercisedatagrid.GetCellValue(rowData, column.MappingName).ToString();
                 }
                //set collumn mapping name as reference Description
                 if (column.MappingName == "Description")
@@ -103,6 +112,7 @@ namespace Mobile_Fitness_Tracker
             //if datagrid exercise selected - delete selected row
             else
             {
+                //call delete row query
                 await App.Database.DeleteWorkoutExerciseRow();
                 OnAppearing();
             }
@@ -115,7 +125,8 @@ namespace Mobile_Fitness_Tracker
             foreach (var column in workoutexercisedatagrid.Columns)
             {
                 //set collumn mapping name as reference Description
-                if (column.MappingName == "Id")
+                   if (column.MappingName == "Id")
+                //if (column.MappingName == "ExerciseId")
                 {
                     //get row data exercise name
                     var rowData = workoutexercisedatagrid.GetRecordAtRowIndex(workoutexercisedatagrid.SelectedIndex);
