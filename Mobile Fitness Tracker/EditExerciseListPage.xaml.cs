@@ -85,29 +85,8 @@ namespace Mobile_Fitness_Tracker
             return;
                         
         }*/
-
               
-       /* //Delete Row method
-        async private void BtnClose_Clicked_1(object sender, EventArgs e)
-        {
-           //check is datagrid is not selected display alert
-            if (datagrid.SelectedIndex<0)
-            {
-                //display alert to select an exercise on datagrid
-                DisplayAlert("Selection Error", "Please select exercise to be deleted", "Close");
-            }
-            //if datagrid exercise selected - delete selected row
-            else
-            {               
-                //delete row call sql query from database class
-                await App.Database.DeleteRow();
-                await App.Database.DeleteWorkoutExerciseRow2();
-                //refresh
-                OnAppearing();
-            }
-           
-
-        }*/
+   
 
         //not in use
         private void datagrid_CurrentCellActivated(object sender, CurrentCellActivatedEventArgs e)

@@ -28,6 +28,9 @@ namespace Mobile_Fitness_Tracker
         public static string Time { get; set; }
 
 
+        public static string testingvalue { get; set; }
+
+
 
 
 

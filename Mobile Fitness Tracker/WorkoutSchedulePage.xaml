@@ -17,13 +17,13 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="260"/>
+            <RowDefinition Height="220"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
 
@@ -41,7 +41,7 @@
         <ContentView Grid.Row="1" Margin="2,2,0,20">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="scheduledatagrid"    
-                                    ItemsSource="{Binding Source=PckWorkout.SelectedItem}"
+                                    
                                    AutoGenerateColumns="False"                                   
                                     GridTapped="scheduledatagrid_GridTapped"                                   
                                    AllowSorting="True"
@@ -74,10 +74,10 @@
 
         
         <Label x:Name="lbldate"
-               
-                Text="Twst" 
-              Grid.Row="6" 
-              FontSize="20"
+              
+                Text="Test" 
+              Grid.Row="7" 
+              FontSize="10"
               TextColor="Black"/>
         
         <DatePicker x:Name="PckDate"
@@ -87,6 +87,7 @@
               TextColor="Black"/>
         
         <TimePicker x:Name="PckTime"
+              
               Format="HH:mm"
               Grid.Row="4" 
               FontSize="20"

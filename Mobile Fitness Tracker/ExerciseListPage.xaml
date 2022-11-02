@@ -41,15 +41,13 @@
             <!-- Place new controls here -->
             <dg:DataGrid x:Name="datagrid"   RowHeight="40" HeaderHeight="40"  
                     BorderColor="#CCCCCC" HeaderBackground="#E0E6F8"  ActiveRowColor="#8899AA">
-                <x:Arguments>
-                    <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
-                </x:Arguments>
-                <dg:DataGrid.HeaderFontSize>
+               
+                <dg:DataGrid.FontSize>
                     <OnIdiom x:TypeArguments="x:Double">
                         <OnIdiom.Tablet>15</OnIdiom.Tablet>
                         <OnIdiom.Phone>12</OnIdiom.Phone>
                     </OnIdiom>
-                </dg:DataGrid.HeaderFontSize>
+                </dg:DataGrid.FontSize>
                 <dg:DataGrid.Columns>
                     <dg:DataGridColumn Title="ID" PropertyName="Id" Width="40"></dg:DataGridColumn>
                     

@@ -41,9 +41,7 @@ namespace Mobile_Fitness_Tracker
             }
                         
         }
-
-       
-                        
+                                      
 
         private void BtnCreateProfile_Clicked(object sender, EventArgs e)
         {

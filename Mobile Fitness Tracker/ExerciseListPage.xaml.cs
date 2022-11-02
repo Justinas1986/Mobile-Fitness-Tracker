@@ -35,7 +35,6 @@ namespace Mobile_Fitness_Tracker
          }
 
 
-
         private void BtnExerciseEdit_Clicked(object sender, EventArgs e)
         {
             //Navigate to Edit Exercise List Page

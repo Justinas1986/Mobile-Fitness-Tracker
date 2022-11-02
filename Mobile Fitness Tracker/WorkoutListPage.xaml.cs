@@ -97,8 +97,8 @@ namespace Mobile_Fitness_Tracker
 
 
 
-//Mehod delete workout from the list on button click
-async private void BtnWorkoutDelete_Clicked(object sender, EventArgs e)
+         //Mehod delete workout from the list on button click
+        async private void BtnWorkoutDelete_Clicked(object sender, EventArgs e)
         {
             //check is datagrid is not selected display alert
             if (workoutdatagrid.SelectedIndex < 0)

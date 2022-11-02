@@ -19,7 +19,7 @@ namespace Mobile_Fitness_Tracker.Droid
             LocalNotificationCenter.CreateNotificationChannel();
             //added this line
             await CrossMedia.Current.Initialize();
-
+            
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
