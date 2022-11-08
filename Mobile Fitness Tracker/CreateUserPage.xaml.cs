@@ -51,14 +51,14 @@ namespace Mobile_Fitness_Tracker
             });
 
                 //Clear entry inputs
-              /*  EntrFirstName.Text = string.Empty;
-                EntrLastName.Text = string.Empty;
-                EntrPreferredName.Text = string.Empty;
-                EntrWeight.Text = string.Empty;
-                EntrHeight.Text = string.Empty;
-                EntrAge.Text = string.Empty;*/
-               
-                
+                /*  EntrFirstName.Text = string.Empty;
+                  EntrLastName.Text = string.Empty;
+                  EntrPreferredName.Text = string.Empty;
+                  EntrWeight.Text = string.Empty;
+                  EntrHeight.Text = string.Empty;
+                  EntrAge.Text = string.Empty;*/
+                //get first name
+                UserGlobalVaraibles.FirstName = EntrFirstName.Text;
                 //Navigate to MyProfilePage
                 await Navigation.PushAsync(new MyProfilePage());
 
@@ -95,6 +95,10 @@ namespace Mobile_Fitness_Tracker
                      DisplayAlert("Something went wrong", ex.Message, "Close");
                  }
         }
-
+        //Navigate back to My profile Pge
+        private void Btnback_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MyProfilePage());
+        }
     }
 }

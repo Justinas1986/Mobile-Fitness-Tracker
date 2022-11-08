@@ -117,5 +117,11 @@ namespace Mobile_Fitness_Tracker
                 OnAppearing();
             }
         }
+
+        private void BtnClose_Clicked(object sender, EventArgs e)
+        {
+            //Navigate to Exercise page
+            Navigation.PushAsync(new ExercisePage());
+        }
     }
 }

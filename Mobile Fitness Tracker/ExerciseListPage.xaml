@@ -81,7 +81,7 @@
 
 
         <Button x:Name="BtnExerciseEdit"
-            Text="Exercise Properties"                           
+            Text="Add/Del Exercise"                           
             Grid.Row="3"      
             Margin="50,5"
             FontSize="20"
@@ -89,8 +89,19 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
-            Clicked="BtnExerciseEdit_Clicked"/>      
-       
+            Clicked="BtnExerciseEdit_Clicked"/>
+
+        <Button x:Name="BtnClose"
+            Text="x Close"                           
+            Grid.Row="4"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnClose_Clicked"/>
+
 
     </Grid>
 

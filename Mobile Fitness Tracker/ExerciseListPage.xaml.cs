@@ -41,6 +41,10 @@ namespace Mobile_Fitness_Tracker
             Navigation.PushAsync(new EditExerciseListPage());
         }
 
-     
+        private void BtnClose_Clicked(object sender, EventArgs e)
+        {
+            //Navigate to Exercise Page
+            Navigation.PushAsync(new ExercisePage());
+        }
     }
 }

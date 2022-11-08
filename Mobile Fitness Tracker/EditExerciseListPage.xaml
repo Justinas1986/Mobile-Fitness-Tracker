@@ -42,8 +42,7 @@
         <ContentView Grid.Row="1" Margin="2,2,0,20">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="datagrid"    
-                                   AutoGenerateColumns="True" 
-                                   CurrentCellActivated="datagrid_CurrentCellActivated"
+                                   AutoGenerateColumns="True"                                   
                                    GridTapped="datagrid_GridTapped"                                   
                                    AllowSorting="True"
                                    ColumnSizer="Star"
@@ -51,7 +50,7 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="No."  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
+                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID."  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
                     <Syncfusion:GridTextColumn MappingName="Exercise" HeaderText="My Exercise" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Description" HeaderText="Description" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                 </Syncfusion:SfDataGrid.Columns>
@@ -106,17 +105,15 @@
         </Grid>                
 
         <Button x:Name="BtnAddExercise"
-            Text="Create Exercise"                
+            Text="Add Exercise"                
             Grid.Row="4"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"
             BorderWidth="1"
-            BorderColor="LightGray"  
-           
+            BorderColor="LightGray"             
             Clicked="BtnAddExercise_Clicked"/>
-
      
 
         <Button x:Name="BtnDeleteRow"
@@ -129,6 +126,17 @@
             BorderWidth="1"
             BorderColor="LightGray"          
             Clicked="BtnDeleteRow_Clicked"/>
+
+        <Button x:Name="BtnReturn"
+            Text="Return"                
+            Grid.Row="6"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"          
+            Clicked="BtnReturn_Clicked"/>
 
 
 

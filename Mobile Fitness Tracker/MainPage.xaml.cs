@@ -14,54 +14,57 @@ namespace Mobile_Fitness_Tracker
         public MainPage()
         {
             InitializeComponent();
-            OnAppearing();
+           // UserGlobalVaraibles.FirstName = "";
 
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            
             //variable to get userprofile info
-            var table = await App.Database.GetPeopleAsync();
-            //loop to read from variable table
-            foreach (var s in table)
-            {                
-                //get First Name from DB to global variable
-                UserGlobalVaraibles.FirstName = s.FirstName;
-                //get Profile picture from DB to global variable
-                UserGlobalVaraibles.ProfilePic = s.ProfilePic;
-            }
+              var table = await App.Database.GetPeopleAsync();
+              //loop to read from variable table
+              foreach (var s in table)
+              {                
+                  //get First Name from DB to global variable
+                  UserGlobalVaraibles.FirstName = s.FirstName;
+                  //get Profile picture from DB to global variable
+                  UserGlobalVaraibles.ProfilePic = s.ProfilePic;
+              }
             //check if username is entered, then enable exercise button
-            if (UserGlobalVaraibles.FirstName != null)
+            if (UserGlobalVaraibles.FirstName !=null)
             {
                 BtnExercise.IsEnabled = true;
             }
 
-
         }
 
-
+        //method nativage to my profile page on button click
         private void BtnMyProfile_Clicked(object sender, EventArgs e)
         {
             //Navigate to Profile page
             Navigation.PushAsync(new MyProfilePage());
 
-
         }
 
+        //method navigate to exercise page on button click
         private void BtnExercise_Clicked(object sender, EventArgs e)
         {
             //Navigate to MainPage
             Navigation.PushAsync(new ExercisePage());
         }
 
+        //method exit app on button click
         private void BtnClose_Clicked(object sender, EventArgs e)
         {
-            
+            //Exit app
+            Environment.Exit(0);
+
         }
 
 
-       
-        
+
+
 
     }
 }

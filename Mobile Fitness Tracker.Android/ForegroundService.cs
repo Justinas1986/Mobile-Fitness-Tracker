@@ -31,26 +31,28 @@ namespace Mobile_Fitness_Tracker.Droid
            [return: GeneratedEnum]
            public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
            {
-               //write the logic here
-               
-               Task.Run(() =>
+           
+            //write the logic here        
+          
+             Task.Run(async () =>
                {
                    while (IsForegroundServiceRunning)
                    {
-
-                      // App.Current.MainPage.DisplayAlert("Time", "Time for workour now!", "OK");
-
-                      // WorkoutSchedulePage.Message();
-
-                       //WorkoutSchedulePage.MyNotification();
-                       //UserGlobalVaraibles.testingvalue = "service is running";
+                       Device.BeginInvokeOnMainThread(async () =>
+                       {
+                          // call notification method
+                           WorkoutSchedulePage.Notification();
+                           // await App.Current.MainPage.DisplayAlert("Time", "Time for workour now!", "OK");
+                       });                  
+                                         
+                       //display message in debug window
                        System.Diagnostics.Debug.WriteLine("Backgroud Service is Running");
-
-                       Thread.Sleep(5000); //every 5s
+                       //delay function
+                       Thread.Sleep(60000); //every 60s
                       
                    }
-               });
-
+             });
+            
                //Create notofication channel
                string channelID = "ForegroundServiceChannel";
                var notificationManager = (NotificationManager)GetSystemService(NotificationService);
@@ -59,18 +61,18 @@ namespace Mobile_Fitness_Tracker.Droid
                    var notificationChannel = new NotificationChannel(channelID, channelID, NotificationImportance.Low);
                    notificationManager.CreateNotificationChannel(notificationChannel);
                }
-               //pas notification builder
-               var notificationBuilder = new NotificationCompat.Builder(this, channelID)
-                   .SetContentTitle("ForegroundServiceStarted")
+            //pas notification builder
+            var notificationBuilder = new NotificationCompat.Builder(this, channelID)
+                   .SetContentTitle("Workout has been scheduled!")
                    .SetSmallIcon(Resource.Mipmap.icon)
-                   .SetContentText("Service Running in Foreground")
+                   .SetContentText("Notification will appear on your scheduled time.")
                    .SetPriority(1)
                    .SetOngoing(true)
                    .SetChannelId(channelID)
                    .SetAutoCancel(true);
-
+         
                //start foreground service
-               StartForeground(1001, notificationBuilder.Build());
+               StartForeground(1001, notificationBuilder.Build());        
                return base.OnStartCommand(intent, flags, startId);
 
 

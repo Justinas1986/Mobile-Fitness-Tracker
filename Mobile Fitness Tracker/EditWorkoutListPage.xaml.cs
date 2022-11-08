@@ -17,7 +17,7 @@ namespace Mobile_Fitness_Tracker
         public EditWorkoutListPage()
         {
             InitializeComponent();
-            OnAppearing();
+           // OnAppearing();
         }
         protected override async void OnAppearing()
         {
@@ -139,6 +139,11 @@ namespace Mobile_Fitness_Tracker
 
         }
 
+        private void BtnWorkoutClose_Clicked(object sender, EventArgs e)
+        {
+            //Navigate to  WorkoutList Page
+            Navigation.PushAsync(new WorkoutListPage());
 
+        }
     }
 }

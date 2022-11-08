@@ -89,10 +89,10 @@ namespace Mobile_Fitness_Tracker
    
 
         //not in use
-        private void datagrid_CurrentCellActivated(object sender, CurrentCellActivatedEventArgs e)
+       /* private void datagrid_CurrentCellActivated(object sender, CurrentCellActivatedEventArgs e)
         {
             
-        }
+        }*/
         
        
         //Method get ID cell value on sellected row
@@ -129,6 +129,12 @@ namespace Mobile_Fitness_Tracker
                 //refresh
                 OnAppearing();
             }
+        }
+        //navigate back to exercise list page
+        private void BtnReturn_Clicked(object sender, EventArgs e)
+        {
+            //Navigate exercise list page
+            Navigation.PushAsync(new ExerciseListPage());
         }
     }
 }

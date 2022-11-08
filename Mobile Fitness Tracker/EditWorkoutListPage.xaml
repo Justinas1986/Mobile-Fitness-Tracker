@@ -19,11 +19,11 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="190"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="60"/>           
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="*"/>           
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
 
@@ -101,7 +101,7 @@
             Clicked="BtnDeleteWorkoutExercise_Clicked"/>
         
         <Button x:Name="BtnWorkoutClose"
-            Text="Close"
+            Text="Return"
             Grid.Row="5"      
             Margin="50,5"
             FontSize="20"
@@ -109,7 +109,7 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
-            />
+            Clicked="BtnWorkoutClose_Clicked"/>
 
 
 

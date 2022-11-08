@@ -15,14 +15,11 @@
                 <GradientStop Color="#A8C658"
                               Offset="1.0"/>
             </LinearGradientBrush>
-            </Grid.Background>
-
-            
+            </Grid.Background>            
        
         
         <Grid.RowDefinitions >
-            <RowDefinition Height="100" />       
-            
+            <RowDefinition Height="100" />    
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>

@@ -19,7 +19,7 @@
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="70"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -54,8 +54,8 @@
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="120"/>
 
 
                         </Grid.RowDefinitions>
@@ -70,11 +70,11 @@
                                FontSize="Medium" 
                                TextColor="Black"
                                Grid.Row="0"
-                               Grid.Column="0"
-                                                            
+                               Grid.Column="0"                                                            
                                HorizontalTextAlignment="End"/>
 
-                        <Label Text="{Binding FirstName}"
+                        <Label 
+                               Text="{Binding FirstName}"
                                FontSize="Medium" 
                                TextColor="Black"
                                Grid.Row="0"
@@ -99,7 +99,7 @@
                                Grid.ColumnSpan="2"
                                HorizontalTextAlignment="Start"/>
 
-                        <Label Text="Preffered Name: "
+                        <Label Text="Pref. Name: "
                                FontSize="Medium" 
                                TextColor="Black"
                                Grid.Row="2"
@@ -210,7 +210,32 @@
             BorderWidth="1"
             BorderColor="LightGray"
             Grid.ColumnSpan="3"
-            Clicked="BtnCreateProfile_Clicked"/>       
+            Clicked="BtnCreateProfile_Clicked"/>
+
+      
+          <!--  <Button x:Name="BtnDeleteAll"
+            Text="DELETE ALL"                
+            Grid.Row="6"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Grid.ColumnSpan="3"
+            Clicked="BtnDeleteAll_Clicked"/>   -->
+
+        <Button x:Name="BtnClose"
+            Text="x Close"                
+            Grid.Row="5"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Grid.ColumnSpan="3"
+            Clicked="BtnClose_Clicked"/>
 
 
 

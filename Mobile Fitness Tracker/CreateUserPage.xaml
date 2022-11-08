@@ -26,6 +26,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
            
 
@@ -49,7 +50,7 @@
         </StackLayout>
 
 
-        <Label x:Name="LblFirstName"
+        <Label x:Name="lblFirstName"
                Text="First Name:"
                Grid.Row="1"
                Grid.Column="0"
@@ -107,7 +108,7 @@
                VerticalOptions="Center"/>
 
         <Label x:Name="LblWeight"
-               Text="Weight:"
+               Text="Weight (lbs):"
                Grid.Row="4"
                Grid.Column="0"
                TextColor="Black"
@@ -116,7 +117,7 @@
                FontSize="20"/>
         <Entry x:Name="EntrWeight"
                Keyboard="Numeric"
-               Placeholder="Weight"
+               Placeholder="Weight (lbs)"
                Grid.Row="4"
                Grid.Column="1"
                Grid.ColumnSpan="2"
@@ -126,7 +127,7 @@
                VerticalOptions="Center"/>
 
         <Label x:Name="LblHeight"
-               Text="Height:"
+               Text="Height (feet):"
                Grid.Row="5"
                Grid.Column="0"
                TextColor="Black"
@@ -135,7 +136,7 @@
                FontSize="20"/>
         <Entry x:Name="EntrHeight"
                Keyboard="Numeric"
-               Placeholder="Height"
+               Placeholder="Height (feet)"
                Grid.Row="5"
                Grid.Column="1"
                Grid.ColumnSpan="2"
@@ -173,9 +174,9 @@
 
 
         <Button x:Name="BtnImageUpload"
-            Text="Uplaod Photo"                
+            Text="Upload Photo"                
             Grid.Row="8"      
-            Margin="50,20"
+            Margin="50,5"
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"
@@ -188,7 +189,7 @@
         <Button x:Name="BtnCreateUser"
             Text="Update User Info"                
             Grid.Row="9"      
-            Margin="50,20"
+            Margin="50,5"
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"
@@ -196,12 +197,18 @@
             BorderColor="LightGray"
             Grid.ColumnSpan="3"
             Clicked="BtnCreateUser_Clicked"/>
+        
+        <Button x:Name="Btnback"
+            Text="Close"
+            Grid.Row="10"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Grid.ColumnSpan="3"
+            Clicked="Btnback_Clicked"/>
 
-
-
-
-
-
-
-    </Grid>
+          </Grid>
 </ContentPage>

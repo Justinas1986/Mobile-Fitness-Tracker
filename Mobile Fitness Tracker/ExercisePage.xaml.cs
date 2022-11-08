@@ -28,8 +28,7 @@ namespace Mobile_Fitness_Tracker
             //Output profile picture
             ImgExercise.Source = UserGlobalVaraibles.ProfilePic;
             //Output Name to label
-            LblNickName.Text = UserGlobalVaraibles.FirstName;
-            
+            LblNickName.Text = UserGlobalVaraibles.FirstName;           
 
         }
 
@@ -55,7 +54,8 @@ namespace Mobile_Fitness_Tracker
 
         private void BtnClose_Clicked(object sender, EventArgs e)
         {
-
+            //Navigate to Main Page
+            Navigation.PushAsync(new MainPage());
         }
     }
 }
