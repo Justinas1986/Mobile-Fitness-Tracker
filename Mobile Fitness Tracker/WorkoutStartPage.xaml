@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid" 
+             xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             x:Class="Mobile_Fitness_Tracker.WorkoutStartPage"
+             Title="Workout Started">
+    
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#FFF0F0F0"
+                              Offset="0.68"/>
+                <GradientStop Color="#A8C658"
+                              Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Grid.RowDefinitions >
+            <RowDefinition Height="60" />
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout x:Name="BasicInfo" Margin="5,5"  Grid.Row="0" >
+            <Label Text="Workout Started"                  
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="20"
+               Margin="0,0"  />
+            <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
+        </StackLayout>
+
+
+        <ContentView Grid.Row="1" Margin="2,2,0,18">
+            <!-- Place new controls here -->
+            <Syncfusion:SfDataGrid x:Name="exercisedatagrid"    
+                                   
+                                   AutoGenerateColumns="False"                                   
+                                                                
+                                   AllowSorting="True"
+                                   ColumnSizer="Star"
+                                   SelectionMode="Single"
+                                   RowHeight="40"                                        
+                                   Margin="5,0">
+                <Syncfusion:SfDataGrid.Columns>
+
+
+
+
+                    <Syncfusion:GridSwitchColumn MappingName="ck" Width="40" >
+                        <Syncfusion:GridSwitchColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox IsEnabled="False"/>
+                            </DataTemplate>
+                        </Syncfusion:GridSwitchColumn.HeaderTemplate>
+
+                    </Syncfusion:GridSwitchColumn>
+
+
+                    <Syncfusion:GridTextColumn MappingName="Exercise"  >
+                        <Syncfusion:GridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Label Text="Exercise" FontAttributes="Bold" TextColor="Black" BackgroundColor="#eff4e6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </DataTemplate>
+                        </Syncfusion:GridTextColumn.HeaderTemplate>
+                    </Syncfusion:GridTextColumn>
+
+                    <Syncfusion:GridTextColumn MappingName="Description" >
+                        <Syncfusion:GridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Label Text="Description" FontAttributes="Bold" TextColor="Black" BackgroundColor="#eff4e6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </DataTemplate>
+                        </Syncfusion:GridTextColumn.HeaderTemplate>
+                    </Syncfusion:GridTextColumn>                 
+
+                </Syncfusion:SfDataGrid.Columns>
+            </Syncfusion:SfDataGrid>
+        </ContentView>
+
+
+        <Button x:Name="BtnExerciseEdit"
+            Text="Not In use yet"                           
+            Grid.Row="3"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            />
+
+        <Button x:Name="BtnClose"
+            Text="x Close Not In use yet"                           
+            Grid.Row="4"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            />
+
+
+    </Grid>
+
+
+    </ContentPage>

@@ -18,12 +18,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="220"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
 
@@ -38,22 +39,50 @@
         </StackLayout>
 
 
-        <ContentView Grid.Row="1" Margin="2,2,0,20">
+        <ContentView Grid.Row="1" Margin="2,2,0,18">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="scheduledatagrid"    
-                                    
+                                   
                                    AutoGenerateColumns="False"                                   
-                                    GridTapped="scheduledatagrid_GridTapped"                                   
+                                   GridTapped="scheduledatagrid_GridTapped"                                   
                                    AllowSorting="True"
                                    ColumnSizer="Star"
                                    SelectionMode="Single"
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
-                    <Syncfusion:GridTextColumn  ValueBinding="{Binding Workout}"  HeaderText="Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
-                    <Syncfusion:GridTextColumn MappingName="Date" HeaderText="Date" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
-                    <Syncfusion:GridTextColumn MappingName="Time" HeaderText="Time" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
+                    <Syncfusion:GridTextColumn MappingName="Id" Width="40" >
+                        <Syncfusion:GridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Label Text="ID" FontAttributes="Bold" TextColor="Black" BackgroundColor="#eff4e6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </DataTemplate>
+                        </Syncfusion:GridTextColumn.HeaderTemplate>
+                    </Syncfusion:GridTextColumn>
+
+                    <Syncfusion:GridTextColumn ValueBinding="{Binding Workout}"  >
+                        <Syncfusion:GridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Label Text="Workout" FontAttributes="Bold" TextColor="Black" BackgroundColor="#eff4e6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </DataTemplate>
+                        </Syncfusion:GridTextColumn.HeaderTemplate>
+                    </Syncfusion:GridTextColumn>
+
+                    <Syncfusion:GridTextColumn MappingName="Date" >
+                        <Syncfusion:GridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Label Text="Date" FontAttributes="Bold" TextColor="Black" BackgroundColor="#eff4e6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </DataTemplate>
+                        </Syncfusion:GridTextColumn.HeaderTemplate>
+                    </Syncfusion:GridTextColumn>
+
+                    <Syncfusion:GridTextColumn MappingName="Time" >
+                        <Syncfusion:GridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Label Text="Time" FontAttributes="Bold" TextColor="Black" BackgroundColor="#eff4e6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </DataTemplate>
+                        </Syncfusion:GridTextColumn.HeaderTemplate>
+                    </Syncfusion:GridTextColumn>
+
                 </Syncfusion:SfDataGrid.Columns>
             </Syncfusion:SfDataGrid>
         </ContentView>
@@ -72,14 +101,17 @@
           
         </Picker>
 
-        
-        <Label x:Name="lbldate"
-              
-                Text="Test" 
+
+        <Label   x:Name="lbldate"                        
+              Text="TEST" 
               Grid.Row="7" 
               FontSize="10"
               TextColor="Black"/>
         
+     
+
+
+
         <DatePicker x:Name="PckDate"
               Format="ddd d MMM"
               Grid.Row="3" 
@@ -93,9 +125,8 @@
               FontSize="20"
               TextColor="Black"/>
 
-
-        <Button x:Name="BtnWorkoutSchedule"
-            Text="Schedule"                           
+        <Button x:Name="BtnStartWorkout"
+            Text="Start Workout"                           
             Grid.Row="5"      
             Margin="50,5"
             FontSize="20"
@@ -103,11 +134,23 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
+            Clicked="BtnStartWorkout_Clicked"/>
+
+
+        <Button x:Name="BtnWorkoutSchedule"
+            Text="Schedule"                           
+            Grid.Row="6"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
             Clicked="BtnWorkoutSchedule_Clicked"/>
-        
+                
         <Button x:Name="BtnDeleteWorkoutSchedule"
             Text="Delete Schedule"                           
-            Grid.Row="6"      
+            Grid.Row="7"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"

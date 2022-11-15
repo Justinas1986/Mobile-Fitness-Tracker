@@ -27,6 +27,7 @@ using Java.Lang;
 using Android.Content;
 using Android.Runtime;
 using Android.Content.PM;
+using System.Threading;
 
 using  Mobile_Fitness_Tracker;
 using Android;
@@ -39,14 +40,14 @@ namespace Mobile_Fitness_Tracker
     
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WorkoutSchedulePage : ContentPage
-    {     
+    {
+        public int index;
         public WorkoutSchedulePage()
         {
             InitializeComponent();
-
+           
            
         }
-
         
         protected override async void OnAppearing()
         {
@@ -54,12 +55,7 @@ namespace Mobile_Fitness_Tracker
             //populate pi ker with workouts
             PopulatePicker();
             //run method to get values to the schedule table and notification
-            Schedule();        
-                      
-            //current date and time to label for testing
-            // lbldate.Text = PckTime.Time.ToString(@"hh\:mm");//android time format!!!!!
-               
-
+            Schedule();      
         }
               
         //Method get workout values from database and populate to picker
@@ -85,71 +81,68 @@ namespace Mobile_Fitness_Tracker
                 {
                     //get row data
                     var rowData = scheduledatagrid.GetRecordAtRowIndex(scheduledatagrid.SelectedIndex);
-                    //assign Id to global varaible
+                    //assign workout to global varaible
                     UserGlobalVaraibles.workoutcellValue = scheduledatagrid.GetCellValue(rowData, column.MappingName).ToString();
                 }                
                
             }           
         }
+      
         //instance of notifitaion method
-         public  static void Notification()
+        public  static void Notification()
          {
             //your instance of the method here
-            WorkoutSchedulePage MyInstance = new WorkoutSchedulePage();
+            WorkoutSchedulePage MyInstance = new WorkoutSchedulePage();        
             MyInstance.MyNotification();
-            
+         
         }
+
+     
+
         //method to show notification when the time is for the workout
-       async public void MyNotification()
-         {
-          
-            //Get workouts into variable from database
+        async private void MyNotification()
+            {     
+           //Get workouts into variable from database
             var table = await App.Database.GetWorkoutScheduleAsync();
-                    
+            //variable for index calculation
+            index = 0;
+           
             //loop to read from variable table           
             foreach (var v in table)
             {
+                index++;
+
                 //if date and time from the schedule table matches date and time value now 
                 if ((v.Date == DateTime.Now.ToString("ddd d MMM")) && (v.Time == DateTime.Now.ToString("HH:mm")))
-                {
-                    App.Current.MainPage.DisplayAlert("Date and time", "Time for a workout now", "OK");
-
-                    // string time = "";
-                        //notification initiation
-                        var notification = new NotificationRequest
+                {                   
+                    await App.Current.MainPage.DisplayAlert("Today is your " + $"{index}" + " workout","Time for exercise" + " " + $"{v.Date}" + " " + $"{v.Time}", "OK");
+                   
+                   var notification = new NotificationRequest
                         {                        //properties
                             BadgeNumber = 1,
                             Description = "Today is your " + $"{v.Workout}"+ " workout",
                             Title = "Time for exercise" + " " + $"{v.Date}" + " " + $"{v.Time}",
-                            ReturningData = "Dummy duomenys",
+                            ReturningData = "Dummy Data",
                             NotificationId = 123,
                             Schedule = { NotifyTime = DateTime.Now }, // Used for Scheduling local notification, if not specified notification will show immediately.               
 
                             Android = new Plugin.LocalNotification.AndroidOption.AndroidOptions()
-                            {
-
-                                //Importance = Plugin.LocalNotification.AndroidOption.AndroidImportance.High,
+                            {                             
                                 Priority = Plugin.LocalNotification.AndroidOption.AndroidPriority.High,
                                 //  Priority = Plugin.LocalNotification.AndroidOption.AndroidImportance.High,
                                 VisibilityType = Plugin.LocalNotification.AndroidOption.AndroidVisibilityType.Public,
                             }
                         };
-                        //show notification
-                        await LocalNotificationCenter.Current.Show(notification);
-
+                    //show notification                   
+                    await LocalNotificationCenter.Current.Show(notification);
                 }
-                /* else
-                 {                   
-                     App.Current.MainPage.DisplayAlert("Time not found", "Time not found", "OK");
-                     //return;
-                 }
-                 return;*/
+                
             }
+            
+        }    
+                
 
-        }
-    
-
-        //method get populate griwdview with wotkout schedule info and start backgroud service for notification
+        //method get populate griwdview with workout schedule info and start backgroud service for notification
         async public void Schedule()
         {
             //Get workouts into variable from database
@@ -161,7 +154,7 @@ namespace Mobile_Fitness_Tracker
             if (scheduledatagrid.GetRecordAtRowIndex(1).ToString() != "NaN")
             {
                 //start foreground service
-                StartForegroundService();            
+                StartForegroundService();          
 
             }
             //if schedule table is empty
@@ -169,11 +162,10 @@ namespace Mobile_Fitness_Tracker
             {
                 //stop foreground service
                 StopForegroundService();
-                DisplayAlert("Missing Schedule", "Please schedule a workout", "Close");
+                await DisplayAlert("Missing Schedule", "Please schedule a workout", "Close");
             }
           
         }
-
 
         //Method schedule a workout time on button click
         async private void BtnWorkoutSchedule_Clicked(object sender, EventArgs e)
@@ -181,9 +173,16 @@ namespace Mobile_Fitness_Tracker
             //check if the workoutt if selected
             if (PckWorkout.SelectedIndex > -1)
             {
-                //check if set date is not less than current date
-                if (DateTime.Now > PckDate.Date )
-                {
+                //get date values
+                DateTime selecteddate = DateTime.Parse(PckDate.Date.ToString("ddd d MMM"));
+                DateTime datenow = DateTime.Parse(DateTime.Now.ToString("ddd d MMM"));
+                //get time values
+                DateTime selectedtime = DateTime.Parse(PckTime.Time.ToString(@"hh\:mm"));//android time format!!
+                DateTime timenow = DateTime.Parse(DateTime.Now.ToString("HH:mm"));          
+
+                //check if set date and is not less than current date and time               
+                if (((selecteddate==datenow)&&(selectedtime > timenow)) || (selecteddate > datenow))
+                { 
                     //check if picker date and tipe is set
                     if (!string.IsNullOrWhiteSpace(PckDate.ToString()) || !string.IsNullOrWhiteSpace(PckTime.ToString()))
                     {                                           
@@ -268,28 +267,37 @@ namespace Mobile_Fitness_Tracker
         }
         //method start foreground service
       public void StartForegroundService()
-        {          
-         
+        {                   
             //if service is not running, start service
             if (DependencyService.Resolve<IForegroundService>().IsForeGroundServiceRunning()==false)
             {
                 //App.Current.MainPage.DisplayAlert("Opps", "Foreground Service is already running", "OK");
                 //start service
                 DependencyService.Resolve<IForegroundService>().StartMyForegroundService();
-            }
-            //if not running start the service
-           /* else
-            {
-                DependencyService.Resolve<IForegroundService>().StartMyForegroundService();
-
-            }*/
+            }          
         }
+
         //method stop foreground service
         public void StopForegroundService()
         {
             DependencyService.Resolve<IForegroundService>().StopMyForegroundService();
-
         }
 
+        //method get workout selection value and navigate to start workout page
+        private void BtnStartWorkout_Clicked(object sender, EventArgs e)
+        {
+            //check is datagrid is not selected display alert
+            if (scheduledatagrid.SelectedIndex < 0)
+            {
+                //display alert to select a workout on datagrid
+                DisplayAlert("Selection Error", "Please select a workout to start", "Close");
+            }
+            //if workout selected 
+            else
+            {              
+                //Navigate to Workout Start page
+                Navigation.PushAsync(new WorkoutStartPage());              
+            }
+        }
     }
 }

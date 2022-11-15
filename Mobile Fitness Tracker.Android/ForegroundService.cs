@@ -40,8 +40,9 @@ namespace Mobile_Fitness_Tracker.Droid
                    {
                        Device.BeginInvokeOnMainThread(async () =>
                        {
-                          // call notification method
+                           // call notification method
                            WorkoutSchedulePage.Notification();
+                           
                            // await App.Current.MainPage.DisplayAlert("Time", "Time for workour now!", "OK");
                        });                  
                                          
@@ -58,7 +59,7 @@ namespace Mobile_Fitness_Tracker.Droid
                var notificationManager = (NotificationManager)GetSystemService(NotificationService);
                if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
                {
-                   var notificationChannel = new NotificationChannel(channelID, channelID, NotificationImportance.Low);
+                   var notificationChannel = new NotificationChannel(channelID, channelID, NotificationImportance.Max);
                    notificationManager.CreateNotificationChannel(notificationChannel);
                }
             //pas notification builder

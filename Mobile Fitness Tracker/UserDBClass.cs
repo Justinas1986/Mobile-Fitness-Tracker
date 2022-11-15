@@ -46,12 +46,13 @@ namespace Mobile_Fitness_Tracker
     public class WorkoutExerciseDBClass
     {
         [PrimaryKey]
-        [AutoIncrement]
+        [AutoIncrement]      
         public int Id { get; set; }       
         public string Workout { get; set; }
         public int ExerciseId { get; set; }
         public string Exercise { get; set; }
-        public string Description { get; set; }       
+        public string Description { get; set; }
+        public bool ck { get; set; }
 
     }
 
