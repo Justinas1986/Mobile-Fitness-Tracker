@@ -106,10 +106,9 @@
               Text="TEST" 
               Grid.Row="7" 
               FontSize="10"
-              TextColor="Black"/>
-        
+              TextColor="Black"
+              IsVisible="False"/>       
      
-
 
 
         <DatePicker x:Name="PckDate"

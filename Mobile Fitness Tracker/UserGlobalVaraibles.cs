@@ -26,7 +26,9 @@ namespace Mobile_Fitness_Tracker
         public static string Date { get; set; }
         //Get time from picker to assign to workout
         public static string Time { get; set; }
-
+        //Get checkbox exercise value
+       // public static string exerciseCkValue { get; set; }
+        
 
         public static string testingvalue { get; set; }
 

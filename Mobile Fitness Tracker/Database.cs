@@ -140,6 +140,16 @@ namespace Mobile_Fitness_Tracker
             //Query to get exercises related to selected workout
             return _database.QueryAsync<WorkoutExerciseDBClass>($"SELECT * FROM WorkoutExerciseDBClass WHERE Workout = '{workout}'");
           }
+
+        //Get Workouts with no exercise assigned 
+        public Task<List<WorkoutExerciseDBClass>> WorkoutNoExerciseAsync()
+        {
+            string workout = UserGlobalVaraibles.workoutcellValue;
+            //Query to get exercises related to selected workout
+            return _database.QueryAsync<WorkoutExerciseDBClass>($"SELECT * FROM WorkoutExerciseDBClass WHERE NULLIF(ExerciseId, ' ') IS NULL ");
+
+        }
+
         //delete row when deleted from Workout+Exercise DB using Workout Id   
         internal async Task DeleteWorkoutExerciseRow()
         {            

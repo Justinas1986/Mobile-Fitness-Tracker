@@ -44,7 +44,8 @@
             <Syncfusion:SfDataGrid x:Name="exercisedatagrid"    
                                    
                                    AutoGenerateColumns="False"                                   
-                                                                
+                                   GridTapped="exercisedatagrid_GridTapped"   
+                                   
                                    AllowSorting="True"
                                    ColumnSizer="Star"
                                    SelectionMode="Single"
@@ -55,10 +56,10 @@
 
 
 
-                    <Syncfusion:GridSwitchColumn MappingName="ck" Width="40" >
+                    <Syncfusion:GridSwitchColumn MappingName="ck" Width="50" HeaderTextAlignment="Center">
                         <Syncfusion:GridSwitchColumn.HeaderTemplate>
                             <DataTemplate>
-                                <CheckBox IsEnabled="False"/>
+                                <CheckBox  IsEnabled="False" CheckedChanged="CheckBox_CheckedChanged"  />
                             </DataTemplate>
                         </Syncfusion:GridSwitchColumn.HeaderTemplate>
 
@@ -85,9 +86,15 @@
             </Syncfusion:SfDataGrid>
         </ContentView>
 
+        <Label   x:Name="lbldate"                        
+              Text="TEST" 
+              Grid.Row="5"
+              FontSize="10"
+              TextColor="Black"/>
 
-        <Button x:Name="BtnExerciseEdit"
-            Text="Not In use yet"                           
+
+        <Button x:Name="BtnDone"
+            Text="Done"                           
             Grid.Row="3"      
             Margin="50,5"
             FontSize="20"
@@ -95,10 +102,10 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
-            />
+            Clicked="BtnDone_Clicked"/>
 
         <Button x:Name="BtnClose"
-            Text="x Close Not In use yet"                           
+            Text="Close"                           
             Grid.Row="4"      
             Margin="50,5"
             FontSize="20"
@@ -106,7 +113,7 @@
             BackgroundColor="White"
             BorderWidth="1"
             BorderColor="LightGray"
-            />
+            Clicked="BtnClose_Clicked"/>
 
 
     </Grid>

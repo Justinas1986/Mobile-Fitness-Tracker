@@ -44,8 +44,7 @@ namespace Mobile_Fitness_Tracker
         public int index;
         public WorkoutSchedulePage()
         {
-            InitializeComponent();
-           
+            InitializeComponent();           
            
         }
         
@@ -96,13 +95,13 @@ namespace Mobile_Fitness_Tracker
             MyInstance.MyNotification();
          
         }
-
      
 
         //method to show notification when the time is for the workout
-        async private void MyNotification()
-            {     
-           //Get workouts into variable from database
+        async public void MyNotification()
+            {          
+
+            //Get workouts into variable from database
             var table = await App.Database.GetWorkoutScheduleAsync();
             //variable for index calculation
             index = 0;
@@ -115,7 +114,7 @@ namespace Mobile_Fitness_Tracker
                 //if date and time from the schedule table matches date and time value now 
                 if ((v.Date == DateTime.Now.ToString("ddd d MMM")) && (v.Time == DateTime.Now.ToString("HH:mm")))
                 {                   
-                    await App.Current.MainPage.DisplayAlert("Today is your " + $"{index}" + " workout","Time for exercise" + " " + $"{v.Date}" + " " + $"{v.Time}", "OK");
+                  // App.Current.MainPage.DisplayAlert("Today is your " + $"{index}" + " workout","Time for exercise" + " " + $"{v.Date}" + " " + $"{v.Time}", "OK");
                    
                    var notification = new NotificationRequest
                         {                        //properties
@@ -129,7 +128,7 @@ namespace Mobile_Fitness_Tracker
                             Android = new Plugin.LocalNotification.AndroidOption.AndroidOptions()
                             {                             
                                 Priority = Plugin.LocalNotification.AndroidOption.AndroidPriority.High,
-                                //  Priority = Plugin.LocalNotification.AndroidOption.AndroidImportance.High,
+                              //  Priority = Plugin.LocalNotification.AndroidOption.AndroidImportance.High,
                                 VisibilityType = Plugin.LocalNotification.AndroidOption.AndroidVisibilityType.Public,
                             }
                         };
@@ -183,7 +182,7 @@ namespace Mobile_Fitness_Tracker
                 //check if set date and is not less than current date and time               
                 if (((selecteddate==datenow)&&(selectedtime > timenow)) || (selecteddate > datenow))
                 { 
-                    //check if picker date and tipe is set
+                    //check if picker date and time is set
                     if (!string.IsNullOrWhiteSpace(PckDate.ToString()) || !string.IsNullOrWhiteSpace(PckTime.ToString()))
                     {                                           
                           //Save to database
@@ -195,7 +194,9 @@ namespace Mobile_Fitness_Tracker
                             Time = PckTime.Time.ToString(@"hh\:mm"),//get time value from picker
                         }) ;
                         //Populate gridview and start background notification
-                        Schedule();                        
+                        Schedule();
+                        //Display message
+                        DisplayAlert("Schedule", "Workout has been scheduled", "Close");
                     }
                     //if date or time is not set display alert
                     else { DisplayAlert("Missing  Date or Time Input", "Please set date and time", "Close"); }
@@ -236,6 +237,8 @@ namespace Mobile_Fitness_Tracker
             {
                 //delete row call sql query from database class
                 await App.Database.DeleteWorkoutScheduleRow();
+                //Display message
+                DisplayAlert("Delete", "Schedule has been removed", "Close");
                 //refresh.
                 Schedule();
             }
@@ -284,14 +287,15 @@ namespace Mobile_Fitness_Tracker
         }
 
         //method get workout selection value and navigate to start workout page
-        private void BtnStartWorkout_Clicked(object sender, EventArgs e)
-        {
+       async private void BtnStartWorkout_Clicked(object sender, EventArgs e)
+        {                   
             //check is datagrid is not selected display alert
             if (scheduledatagrid.SelectedIndex < 0)
             {
                 //display alert to select a workout on datagrid
                 DisplayAlert("Selection Error", "Please select a workout to start", "Close");
             }
+
             //if workout selected 
             else
             {              
