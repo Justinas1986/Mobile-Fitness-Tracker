@@ -17,8 +17,9 @@ namespace Mobile_Fitness_Tracker
         public WorkoutListPage()
         {
             InitializeComponent();
-            OnAppearing();
-            
+            //remove navigation bar
+            NavigationPage.SetHasNavigationBar(this, false);
+
         }
         protected override async void OnAppearing()
         {

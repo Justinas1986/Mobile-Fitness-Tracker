@@ -25,8 +25,9 @@ namespace Mobile_Fitness_Tracker
         public MyProfilePage()
         {
             InitializeComponent();
-           // OnAppearing();
-            
+            //remove navigation bar
+            NavigationPage.SetHasNavigationBar(this, false);
+
 
         }
 

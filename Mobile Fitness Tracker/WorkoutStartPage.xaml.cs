@@ -27,8 +27,9 @@ namespace Mobile_Fitness_Tracker
 
         public WorkoutStartPage()
         {
-            InitializeComponent();                      
-
+            InitializeComponent();
+            //remove navigation bar
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         protected override async void OnAppearing()
@@ -130,11 +131,17 @@ namespace Mobile_Fitness_Tracker
             }
         
         }
-
-        private void BtnClose_Clicked(object sender, EventArgs e)
+        //method navigate to WorkoutSchedulePage on button click
+        async private void BtnClose_Clicked(object sender, EventArgs e)
         {
-            //Navigate to Workout Start page
-            Navigation.PushAsync(new WorkoutSchedulePage());
+            //display alert 
+            bool answer = await DisplayAlert("Exit workout?", $"Do you want to exit the workout '{UserGlobalVaraibles.workoutcellValue}?", "Yes", "No");
+            //if Yes 
+            if (answer == true)
+            {
+                //Navigate to Workout Start page
+                Navigation.PushAsync(new WorkoutSchedulePage());
+            }
         }
     }
 }

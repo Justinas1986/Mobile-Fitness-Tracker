@@ -20,7 +20,8 @@ namespace Mobile_Fitness_Tracker
         public CreateUserPage()
         {
             InitializeComponent();
-            
+            //remove navigation bar
+            NavigationPage.SetHasNavigationBar(this, false);
         }
         public string name;
         public string Firstname;

@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Android.Views;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,15 +15,16 @@ namespace Mobile_Fitness_Tracker
         public MainPage()
         {
             InitializeComponent();
-           // UserGlobalVaraibles.FirstName = "";
 
+            //remove navigation bar
+         //   NavigationPage.SetHasNavigationBar(this, false);
         }
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-            
+            base.OnAppearing(); 
+           
             //variable to get userprofile info
-              var table = await App.Database.GetPeopleAsync();
+            var table = await App.Database.GetPeopleAsync();
               //loop to read from variable table
               foreach (var s in table)
               {                

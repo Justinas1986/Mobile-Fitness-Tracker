@@ -20,8 +20,10 @@ namespace Mobile_Fitness_Tracker
         public ExerciseListPage()
         {
             InitializeComponent();
-            OnAppearing();
-        
+            //remove navigation bar
+            NavigationPage.SetHasNavigationBar(this, false);
+            // OnAppearing();
+
 
         }
         protected override async void OnAppearing()

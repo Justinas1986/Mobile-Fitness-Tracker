@@ -44,13 +44,14 @@ namespace Mobile_Fitness_Tracker
         public int index;
         public WorkoutSchedulePage()
         {
-            InitializeComponent();           
-           
+            InitializeComponent(); 
+            //NavigationPage.SetHasNavigationBar(this, false);
+
         }
         
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
+            base.OnAppearing(); 
             //populate pi ker with workouts
             PopulatePicker();
             //run method to get values to the schedule table and notification
@@ -168,7 +169,7 @@ namespace Mobile_Fitness_Tracker
 
         //Method schedule a workout time on button click
         async private void BtnWorkoutSchedule_Clicked(object sender, EventArgs e)
-        {            
+        {
             //check if the workoutt if selected
             if (PckWorkout.SelectedIndex > -1)
             {
@@ -177,42 +178,64 @@ namespace Mobile_Fitness_Tracker
                 DateTime datenow = DateTime.Parse(DateTime.Now.ToString("ddd d MMM"));
                 //get time values
                 DateTime selectedtime = DateTime.Parse(PckTime.Time.ToString(@"hh\:mm"));//android time format!!
-                DateTime timenow = DateTime.Parse(DateTime.Now.ToString("HH:mm"));          
+                DateTime timenow = DateTime.Parse(DateTime.Now.ToString("HH:mm"));
 
                 //check if set date and is not less than current date and time               
-                if (((selecteddate==datenow)&&(selectedtime > timenow)) || (selecteddate > datenow))
-                { 
-                    //check if picker date and time is set
-                    if (!string.IsNullOrWhiteSpace(PckDate.ToString()) || !string.IsNullOrWhiteSpace(PckTime.ToString()))
-                    {                                           
-                          //Save to database
-                        await App.Database.SaveWorkoutScheduleAsync(new WorkoutScheduleDBClass
-                        {
-                            //Get workout and exercise information to database
-                            Workout = lbldate.Text,     // get workout value from label                      
-                            Date = PckDate.Date.ToString("ddd d MMM"),//get date value from picker                            
-                            Time = PckTime.Time.ToString(@"hh\:mm"),//get time value from picker
-                        }) ;
-                        //Populate gridview and start background notification
-                        Schedule();
-                        //Display message
-                        DisplayAlert("Schedule", "Workout has been scheduled", "Close");
-                    }
-                    //if date or time is not set display alert
-                    else { DisplayAlert("Missing  Date or Time Input", "Please set date and time", "Close"); }
+                if (((selecteddate == datenow) && (selectedtime > timenow)) || (selecteddate > datenow))
+                {
 
-                }
+                    //Get workouts into variable from database
+                    var table = await App.Database.GetWorkoutScheduleAsync();
+
+
+                    //loop to read from datagrid        
+                    foreach (var d in table)
+                    {
+                        //check if selected date and time is equal date and time in the datagrid
+                        if ((d.Date.ToString()== PckDate.Date.ToString("ddd d MMM")) && (d.Time.ToString() == PckTime.Time.ToString(@"hh\:mm")))
+                        {
+                            //display alert
+                            DisplayAlert("Schedule Date Error", $"Workout already exists on selected date and time at ID {d.Id}", "Close");
+                            //stop process.
+                            return;
+                        }
+                    }
+
+
+
+                            //check if picker date and time is set
+                            if (!string.IsNullOrWhiteSpace(PckDate.ToString()) || !string.IsNullOrWhiteSpace(PckTime.ToString()))
+                            {
+                                //Save to database
+                                await App.Database.SaveWorkoutScheduleAsync(new WorkoutScheduleDBClass
+                                {
+                                    //Get workout and exercise information to database
+                                    Workout = lbldate.Text,     // get workout value from label                      
+                                    Date = PckDate.Date.ToString("ddd d MMM"),//get date value from picker                            
+                                    Time = PckTime.Time.ToString(@"hh\:mm"),//get time value from picker
+                                });
+                                //Populate gridview and start background notification
+                                Schedule();
+                                //Display message
+                                DisplayAlert("Schedule", "Workout has been scheduled", "Close");
+                            }
+
+                            //if date or time is not set display alert
+                            else { DisplayAlert("Missing  Date or Time Input", "Please set date and time", "Close"); }
+                            }                                                  
+
                 //if date less than current date
                 else { DisplayAlert("Wrong date set", "Please set future date", "Close"); }
-            }
+                }
+            
             //if workout is not selected display alert
             else
             {
                 //Display alert if workout is not selected
                 DisplayAlert("Missing Selection", "Please select a workout", "Close");
-            }            
+            }
         }
-
+        
   
 
         //method in use to cast value from picker to label
@@ -302,6 +325,12 @@ namespace Mobile_Fitness_Tracker
                 //Navigate to Workout Start page
                 Navigation.PushAsync(new WorkoutStartPage());              
             }
+        }
+
+        private void BtnClose_Clicked(object sender, EventArgs e)
+        {
+            //Navigate back to Exercise Page
+            Navigation.PushAsync(new ExercisePage());
         }
     }
 }

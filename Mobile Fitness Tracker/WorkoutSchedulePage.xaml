@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              x:Class="Mobile_Fitness_Tracker.WorkoutSchedulePage"
              xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-             Title="Workout Schedule">
+             Title="Workout Schedule"
+             NavigationPage.HasNavigationBar="false">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0,1">
@@ -21,6 +22,7 @@
             <RowDefinition Height="45"/>
             <RowDefinition Height="45"/>
             <RowDefinition Height="45"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
@@ -157,8 +159,19 @@
             BorderWidth="1"
             BorderColor="LightGray"
             Clicked="BtnDeleteWorkoutSchedule_Clicked"/>
-       
-    
+
+        <Button x:Name="BtnClose"
+            Text="x Close"                           
+            Grid.Row="8"      
+            Margin="50,5"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="White"
+            BorderWidth="1"
+            BorderColor="LightGray"
+            Clicked="BtnClose_Clicked"/>
+
+
 
     </Grid>
 
