@@ -19,11 +19,12 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="190"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="190"/>
-            <RowDefinition Height="80"/>           
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>           
+            <RowDefinition Height="60"/>
            
         </Grid.RowDefinitions>
 
@@ -38,8 +39,16 @@
             <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
         </StackLayout>
 
+        <Label Text="Tap row to select exercise" 
+               Grid.Row="1"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="12"
+               Margin="0,0"  />
 
-        <ContentView Grid.Row="1">
+
+        <ContentView Grid.Row="2">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="exercisedatagrid"    
                                    AutoGenerateColumns="False"                                   
@@ -61,7 +70,7 @@
 
         <Button x:Name="BtnExerciseAdd"
             Text="Add to Workout List"                           
-            Grid.Row="2"      
+            Grid.Row="3"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -70,7 +79,7 @@
             BorderColor="LightGray"
            Clicked="BtnExerciseAdd_Clicked" />
 
-        <ContentView Grid.Row="3">
+        <ContentView Grid.Row="4">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="workoutexercisedatagrid"    
                                    AutoGenerateColumns="False"                                   
@@ -92,7 +101,7 @@
        
         <Button x:Name="BtnDeleteWorkoutExercise"
             Text="Delete Entry"
-            Grid.Row="4"      
+            Grid.Row="5"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -103,7 +112,7 @@
         
         <Button x:Name="BtnWorkoutClose"
             Text="Return"
-            Grid.Row="5"      
+            Grid.Row="6"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
