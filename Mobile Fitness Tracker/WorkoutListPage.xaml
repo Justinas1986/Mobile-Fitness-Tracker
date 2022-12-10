@@ -17,7 +17,8 @@
 
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="260"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="5"/>
@@ -38,8 +39,16 @@
             <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
         </StackLayout>
 
+        <Label Text="Tap row to select workout" 
+               Grid.Row="1"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="12"
+               Margin="0,0"  />
 
-        <ContentView Grid.Row="1" Margin="2,2,0,20">
+
+        <ContentView Grid.Row="2" Margin="2,2,0,20">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="workoutdatagrid"    
                                    AutoGenerateColumns="False"                                   
@@ -50,7 +59,7 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
+                    <!--  <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />-->
                     <Syncfusion:GridTextColumn MappingName="Workout" HeaderText="Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>                    
                 </Syncfusion:SfDataGrid.Columns>
             </Syncfusion:SfDataGrid>
@@ -60,14 +69,14 @@
         <Entry x:Name="EntrWorkout"
                Placeholder="Create New Workout"
                PlaceholderColor="Silver"
-               Grid.Row="2"                 
+               Grid.Row="3"                 
                TextColor="Black"               
                HorizontalOptions="FillAndExpand"
                VerticalOptions="Start"/>     
 
         <Button x:Name="BtnWorkoutAdd"
             Text="Add Workout"                           
-            Grid.Row="4"      
+            Grid.Row="5"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -79,7 +88,7 @@
         <Button x:Name="BtnWorkoutEdit"
             Text="Workout Properties" 
             IsEnabled="False"
-            Grid.Row="5"      
+            Grid.Row="6"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -92,7 +101,7 @@
 
         <Button x:Name="BtnWorkoutDelete"
             Text="Delete Workout"
-            Grid.Row="6"      
+            Grid.Row="7"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -103,7 +112,7 @@
 
         <Button x:Name="BtnClose"
             Text="x Close"
-            Grid.Row="6"      
+            Grid.Row="7"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"

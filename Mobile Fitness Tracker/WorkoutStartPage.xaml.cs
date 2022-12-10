@@ -102,10 +102,11 @@ namespace Mobile_Fitness_Tracker
 
     
 
-        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+      /*  private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            lbldate.Text = "checked";
-        }
+           
+        }*/
+
         //method confirm workout is complete on button click
         private void BtnDone_Clicked(object sender, EventArgs e)
         {

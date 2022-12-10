@@ -17,16 +17,17 @@
 
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="220"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="205"/>
             <RowDefinition Height="45"/>
             <RowDefinition Height="45"/>
             <RowDefinition Height="45"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+           
         </Grid.RowDefinitions>
 
 
@@ -40,8 +41,16 @@
             <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
         </StackLayout>
 
+        <Label Text="Tap row to select workout" 
+               Grid.Row="1"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="12"
+               Margin="0,0"  />
 
-        <ContentView Grid.Row="1" Margin="2,2,0,18">
+
+        <ContentView Grid.Row="2" Margin="2,2,0,5">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="scheduledatagrid"    
                                    
@@ -53,13 +62,13 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" Width="40" >
+                    <!--   <Syncfusion:GridTextColumn MappingName="Id" Width="40" >
                         <Syncfusion:GridTextColumn.HeaderTemplate>
                             <DataTemplate>
                                 <Label Text="ID" FontAttributes="Bold" TextColor="Black" BackgroundColor="#eff4e6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                             </DataTemplate>
                         </Syncfusion:GridTextColumn.HeaderTemplate>
-                    </Syncfusion:GridTextColumn>
+                    </Syncfusion:GridTextColumn>-->
 
                     <Syncfusion:GridTextColumn ValueBinding="{Binding Workout}"  >
                         <Syncfusion:GridTextColumn.HeaderTemplate>
@@ -96,7 +105,7 @@
                SelectedItem="{Binding SelectedWorkout}"
                TextColor="Black"
                TitleColor="Black"
-               Grid.Row="2"             
+               Grid.Row="3"             
                FontSize="20"
                SelectedIndexChanged="PckWorkout_SelectedIndexChanged">
            
@@ -106,7 +115,7 @@
 
         <Label   x:Name="lbldate"                        
               Text="TEST" 
-              Grid.Row="7" 
+              Grid.Row="8" 
               FontSize="10"
               TextColor="Black"
               IsVisible="False"/>       
@@ -114,22 +123,23 @@
 
 
         <DatePicker x:Name="PckDate"
-              Format="ddd d MMM"
-              Grid.Row="3" 
+             
+             Format="ddd d MMM"
+              Grid.Row="4" 
               FontSize="20"
               TextColor="Black"/>
         
         <TimePicker x:Name="PckTime"
               
-              Format="HH:mm"
-              Grid.Row="4" 
+              Format="hh:mm tt"
+              Grid.Row="5" 
               FontSize="20"
               TextColor="Black"/>
 
         <Button x:Name="BtnStartWorkout"
             Text="Start Workout"                           
-            Grid.Row="5"      
-            Margin="50,5"
+            Grid.Row="6"      
+            Margin="50,1"
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"
@@ -140,8 +150,8 @@
 
         <Button x:Name="BtnWorkoutSchedule"
             Text="Schedule"                           
-            Grid.Row="6"      
-            Margin="50,5"
+            Grid.Row="7"      
+            Margin="50,1"
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"
@@ -151,8 +161,8 @@
                 
         <Button x:Name="BtnDeleteWorkoutSchedule"
             Text="Delete Schedule"                           
-            Grid.Row="7"      
-            Margin="50,5"
+            Grid.Row="8"      
+            Margin="50,1"
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"
@@ -162,8 +172,8 @@
 
         <Button x:Name="BtnClose"
             Text="x Close"                           
-            Grid.Row="8"      
-            Margin="50,5"
+            Grid.Row="9"      
+            Margin="50,1"
             FontSize="20"
             TextColor="Black"
             BackgroundColor="White"

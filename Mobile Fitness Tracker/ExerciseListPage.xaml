@@ -49,7 +49,7 @@
                     </OnIdiom>
                 </dg:DataGrid.FontSize>
                 <dg:DataGrid.Columns>
-                    <dg:DataGridColumn Title="ID" PropertyName="Id" Width="40"></dg:DataGridColumn>
+                    <!--  <dg:DataGridColumn Title="ID" PropertyName="Id" Width="40"></dg:DataGridColumn>-->
                     
                     <dg:DataGridColumn PropertyName="Exercise" Width="*">
                         <dg:DataGridColumn.FormattedTitle>

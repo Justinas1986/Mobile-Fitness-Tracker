@@ -18,8 +18,9 @@
 
 
         <Grid.RowDefinitions >
-            <RowDefinition Height="60" />
-            <RowDefinition Height="350"/>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="320"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
@@ -38,8 +39,16 @@
             <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
         </StackLayout>
 
+        <Label Text="Check accomplished exercise" 
+               Grid.Row="1"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="12"
+               Margin="0,0"  />
 
-        <ContentView Grid.Row="1" Margin="2,2,0,18">
+
+        <ContentView Grid.Row="2" Margin="2,2,0,18">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="exercisedatagrid"    
                                    
@@ -56,10 +65,10 @@
 
 
 
-                    <Syncfusion:GridSwitchColumn MappingName="ck" Width="50" HeaderTextAlignment="Center">
+                    <Syncfusion:GridSwitchColumn MappingName="ck" Width="40" HeaderTextAlignment="Center" TextAlignment="Center">
                         <Syncfusion:GridSwitchColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox  IsEnabled="False" CheckedChanged="CheckBox_CheckedChanged"  />
+                            <DataTemplate >
+                                <CheckBox  IsEnabled="False"/>
                             </DataTemplate>
                         </Syncfusion:GridSwitchColumn.HeaderTemplate>
 
@@ -86,16 +95,10 @@
             </Syncfusion:SfDataGrid>
         </ContentView>
 
-        <Label   x:Name="lbldate"                        
-              Text="TEST" 
-              Grid.Row="5"
-              FontSize="10"
-              TextColor="Black"/>
-
-
+       
         <Button x:Name="BtnDone"
             Text="Done"                           
-            Grid.Row="3"      
+            Grid.Row="4"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -106,7 +109,7 @@
 
         <Button x:Name="BtnClose"
             Text="Close"                           
-            Grid.Row="4"      
+            Grid.Row="5"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"

@@ -17,7 +17,8 @@
 
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="220"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="20"/>
@@ -34,15 +35,23 @@
                VerticalOptions="Start"
                TextColor="Black"
                FontSize="20"
-               Margin="0,0"  />
+               Margin="0,0"  />         
             <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
         </StackLayout>
+        
+        <Label Text="Tap row to select exercise" 
+               Grid.Row="1"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Black"
+               FontSize="12"
+               Margin="0,0"  />
 
 
-        <ContentView Grid.Row="1" Margin="2,2,0,20">
+        <ContentView Grid.Row="2" Margin="2,2,0,20">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="datagrid"    
-                                   AutoGenerateColumns="True"                                   
+                                   AutoGenerateColumns="False"                                   
                                    GridTapped="datagrid_GridTapped"                                   
                                    AllowSorting="True"
                                    ColumnSizer="Star"
@@ -50,7 +59,7 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID."  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
+                    <!--   <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID."  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />-->
                     <Syncfusion:GridTextColumn MappingName="Exercise" HeaderText="My Exercise" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Description" HeaderText="Description" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                 </Syncfusion:SfDataGrid.Columns>
@@ -58,7 +67,7 @@
         </ContentView>
 
         <!-- Grid fr entries -->
-        <Grid Grid.Row="2" >
+        <Grid Grid.Row="3" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>                
                 <RowDefinition Height="50"/>             
@@ -106,7 +115,7 @@
 
         <Button x:Name="BtnAddExercise"
             Text="Add Exercise"                
-            Grid.Row="4"      
+            Grid.Row="5"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -118,7 +127,7 @@
 
         <Button x:Name="BtnDeleteRow"
             Text="Delete Exercise"                
-            Grid.Row="5"      
+            Grid.Row="6"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"
@@ -129,7 +138,7 @@
 
         <Button x:Name="BtnReturn"
             Text="Return"                
-            Grid.Row="6"      
+            Grid.Row="7"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"

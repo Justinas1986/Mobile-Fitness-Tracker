@@ -42,7 +42,7 @@
         <ContentView Grid.Row="1">
             <!-- Place new controls here -->
             <Syncfusion:SfDataGrid x:Name="exercisedatagrid"    
-                                   AutoGenerateColumns="True"                                   
+                                   AutoGenerateColumns="False"                                   
                                    GridTapped="exercisedatagrid_GridTapped"                            
                                    AllowSorting="True"
                                    ColumnSizer="Star"
@@ -50,7 +50,7 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
+                    <!-- <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />-->
                     <Syncfusion:GridTextColumn MappingName="Exercise" HeaderText="My Exercise" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Description" HeaderText="Description" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                 </Syncfusion:SfDataGrid.Columns>
@@ -81,9 +81,9 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
+                    <!--  <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />--> 
                     <Syncfusion:GridTextColumn MappingName="Workout" HeaderText="My Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
-                    <Syncfusion:GridTextColumn MappingName="ExerciseId" HeaderText="EID" HeaderFontAttribute="Bold" HeaderFont="Italic" Width="40" />
+                    <!-- <Syncfusion:GridTextColumn MappingName="ExerciseId" HeaderText="EID" HeaderFontAttribute="Bold" HeaderFont="Italic" Width="40" />-->
                     <Syncfusion:GridTextColumn MappingName="Exercise" HeaderText="My Exercise" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                     <Syncfusion:GridTextColumn MappingName="Description" HeaderText="Description" HeaderFontAttribute="Bold" HeaderFont="Italic"/>
                 </Syncfusion:SfDataGrid.Columns>
