@@ -131,7 +131,7 @@
         
         <TimePicker x:Name="PckTime"
               
-              Format="hh:mm tt"
+              Format="HH:mm"
               Grid.Row="5" 
               FontSize="20"
               TextColor="Black"/>
