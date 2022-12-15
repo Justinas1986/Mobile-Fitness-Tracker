@@ -74,7 +74,7 @@ namespace Mobile_Fitness_Tracker
         {             
             int digit = UserGlobalVaraibles.cellValue;
             //query delete selected row by Id
-             await _database.ExecuteAsync($"delete from ExerciseDBClass where Id = {digit} ;");
+             await _database.ExecuteAsync($"delete from ExerciseDBClass where Id = {digit} ");
         }
 
         //-------------Workout DB-----------------------------//
@@ -96,7 +96,7 @@ namespace Mobile_Fitness_Tracker
         public Task<List<WorkoutDBClass>> WorkoutAsync()
         {
             string workout = UserGlobalVaraibles.workoutcellValue;
-            return _database.QueryAsync<WorkoutDBClass>($"SELECT Workout FROM WorkoutDBClass WHERE Workout = '{workout}'");
+            return _database.QueryAsync<WorkoutDBClass>($"SELECT Workout FROM WorkoutDBClass WHERE Workout = {workout}");
         }
 
         //delete workout row from data grid view
@@ -104,7 +104,7 @@ namespace Mobile_Fitness_Tracker
         {
             int digit = UserGlobalVaraibles.cellValue;
             //query delete selected row by Id
-            await _database.ExecuteAsync($"delete from WorkoutDBClass where Id = {digit} ;");
+            await _database.ExecuteAsync($"delete from WorkoutDBClass where Id = {digit} ");
         }
 
         //update workout with date and time query

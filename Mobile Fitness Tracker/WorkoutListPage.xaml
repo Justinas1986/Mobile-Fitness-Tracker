@@ -25,6 +25,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
@@ -59,7 +60,7 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <!--  <Syncfusion:GridTextColumn MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />-->
+                    <Syncfusion:GridTextColumn IsHidden = "True" MappingName="Id" HeaderText="ID"  HeaderFont="Italic" HeaderFontAttribute="Bold" Width="40" />
                     <Syncfusion:GridTextColumn MappingName="Workout" HeaderText="Workout" HeaderFontAttribute="Bold" HeaderFont="Italic"/>                    
                 </Syncfusion:SfDataGrid.Columns>
             </Syncfusion:SfDataGrid>
@@ -112,7 +113,7 @@
 
         <Button x:Name="BtnClose"
             Text="x Close"
-            Grid.Row="7"      
+            Grid.Row="8"      
             Margin="50,5"
             FontSize="20"
             TextColor="Black"

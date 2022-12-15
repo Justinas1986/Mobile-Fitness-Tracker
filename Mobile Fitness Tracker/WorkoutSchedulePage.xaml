@@ -62,13 +62,13 @@
                                    RowHeight="40"                                        
                                    Margin="5,0">
                 <Syncfusion:SfDataGrid.Columns>
-                    <!--   <Syncfusion:GridTextColumn MappingName="Id" Width="40" >
+                    <Syncfusion:GridTextColumn IsHidden = "True" MappingName="Id" Width="40" >
                         <Syncfusion:GridTextColumn.HeaderTemplate>
                             <DataTemplate>
                                 <Label Text="ID" FontAttributes="Bold" TextColor="Black" BackgroundColor="#eff4e6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                             </DataTemplate>
                         </Syncfusion:GridTextColumn.HeaderTemplate>
-                    </Syncfusion:GridTextColumn>-->
+                    </Syncfusion:GridTextColumn>
 
                     <Syncfusion:GridTextColumn ValueBinding="{Binding Workout}"  >
                         <Syncfusion:GridTextColumn.HeaderTemplate>
